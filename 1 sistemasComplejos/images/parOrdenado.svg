@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="191px" preserveAspectRatio="none" style="width:315px;height:191px;" version="1.1" viewBox="0 0 315 191" width="315px" zoomAndPan="magnify"><defs><filter height="300%" id="f1j5i6yq080yw4" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--cluster parOrdenado--><polygon fill="#FFFFFF" filter="url(#f1j5i6yq080yw4)" points="22,24,121,24,128,47.6094,293,47.6094,293,179,22,179,22,24" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="22" x2="128" y1="47.6094" y2="47.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="93" x="26" y="40.5332">parOrdenado</text><!--cluster Conjunto1--><polygon fill="#FFFFFF" filter="url(#f1j5i6yq080yw4)" points="181,68,259,68,266,91.6094,269,91.6094,269,155,181,155,181,68" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="181" x2="266" y1="91.6094" y2="91.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="72" x="185" y="84.5332">Conjunto1</text><!--cluster Conjunto2--><polygon fill="#FFFFFF" filter="url(#f1j5i6yq080yw4)" points="46,68,124,68,131,91.6094,157,91.6094,157,155,46,155,46,68" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="46" x2="131" y1="91.6094" y2="91.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="72" x="50" y="84.5332">Conjunto2</text><rect fill="#FEFECE" filter="url(#f1j5i6yq080yw4)" height="35.0938" style="stroke: #A80036; stroke-width: 1.5;" width="36" x="207" y="104"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="22" x="214" y="118.457">A(1)</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="208" x2="242" y1="123.0938" y2="123.0938"/><rect fill="#FEFECE" filter="url(#f1j5i6yq080yw4)" height="35.0938" style="stroke: #A80036; stroke-width: 1.5;" width="21" x="119.5" y="104"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="7" x="126.5" y="118.457">A</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="120.5" x2="139.5" y1="123.0938" y2="123.0938"/><rect fill="#FEFECE" filter="url(#f1j5i6yq080yw4)" height="35.0938" style="stroke: #A80036; stroke-width: 1.5;" width="22" x="62" y="104"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="8" x="69" y="118.457">B</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="63" x2="83" y1="123.0938" y2="123.0938"/><!--
+@startuml
+package parOrdenado {
+
+package  Conjunto1 {
+object "A(1)" as A1
+}
+package Conjunto2 {
+object A
+object B
+}
+
+}
+@enduml
+
+PlantUML version 1.2019.05(Sat Apr 20 18:45:36 CEST 2019)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Java Version: 1.8.0_211-b12
+Operating System: Windows 10
+OS Version: 10.0
+Default Encoding: windows-1252
+Language: es
+Country: ES
+--></g></svg>
