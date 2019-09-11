@@ -4,9 +4,8 @@ Apuntes pertenecientes a la asignatura de Vision General (del Software) del Mast
 **No soy el autor de los apuntes**. 
 Esto no es mas que un sitio donde agruparlos y tenerlos visibles online para acceder cuando lo necesite.
 
-* [1 sistemasComplejos](./1 sistemasComplejos/index.html)
-* [2 software](./2 software/index.html)
-* [3 ingenieriaSoftware](./3 ingenieriaSoftware/index.html)
-* [4 disenyo](./4 disenyo/index.html)
-
+* [1 sistemasComplejos](./1%20sistemasComplejos/index.html)
+* [2 software](./2%20software/index.html)
+* [3 ingenieriaSoftware](./3%20ingenieriaSoftware/index.html)
+* [4 disenyo](./4%20disenyo/index.html)
  
