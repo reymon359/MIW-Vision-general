@@ -1,0 +1,3172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.8">
+<meta name="author" content="Santa Tecla">
+<title>Diseño Modular</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
+<style>
+/* Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
+/* Uncomment @import statement to use as custom stylesheet */
+/*@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700";*/
+article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section{display:block}
+audio,video{display:inline-block}
+audio:not([controls]){display:none;height:0}
+html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}
+a{background:none}
+a:focus{outline:thin dotted}
+a:active,a:hover{outline:0}
+h1{font-size:2em;margin:.67em 0}
+abbr[title]{border-bottom:1px dotted}
+b,strong{font-weight:bold}
+dfn{font-style:italic}
+hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0}
+mark{background:#ff0;color:#000}
+code,kbd,pre,samp{font-family:monospace;font-size:1em}
+pre{white-space:pre-wrap}
+q{quotes:"\201C" "\201D" "\2018" "\2019"}
+small{font-size:80%}
+sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}
+sup{top:-.5em}
+sub{bottom:-.25em}
+img{border:0}
+svg:not(:root){overflow:hidden}
+figure{margin:0}
+fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}
+legend{border:0;padding:0}
+button,input,select,textarea{font-family:inherit;font-size:100%;margin:0}
+button,input{line-height:normal}
+button,select{text-transform:none}
+button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer}
+button[disabled],html input[disabled]{cursor:default}
+input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0}
+button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}
+textarea{overflow:auto;vertical-align:top}
+table{border-collapse:collapse;border-spacing:0}
+*,*::before,*::after{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box}
+html,body{font-size:100%}
+body{background:#fff;color:rgba(0,0,0,.8);padding:0;margin:0;font-family:"Noto Serif","DejaVu Serif",serif;font-weight:400;font-style:normal;line-height:1;position:relative;cursor:auto;tab-size:4;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased}
+a:hover{cursor:pointer}
+img,object,embed{max-width:100%;height:auto}
+object,embed{height:100%}
+img{-ms-interpolation-mode:bicubic}
+.left{float:left!important}
+.right{float:right!important}
+.text-left{text-align:left!important}
+.text-right{text-align:right!important}
+.text-center{text-align:center!important}
+.text-justify{text-align:justify!important}
+.hide{display:none}
+img,object,svg{display:inline-block;vertical-align:middle}
+textarea{height:auto;min-height:50px}
+select{width:100%}
+.center{margin-left:auto;margin-right:auto}
+.stretch{width:100%}
+.subheader,.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{line-height:1.45;color:#7a2518;font-weight:400;margin-top:0;margin-bottom:.25em}
+div,dl,dt,dd,ul,ol,li,h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6,pre,form,p,blockquote,th,td{margin:0;padding:0;direction:ltr}
+a{color:#2156a5;text-decoration:underline;line-height:inherit}
+a:hover,a:focus{color:#1d4b8f}
+a img{border:0}
+p{font-family:inherit;font-weight:400;font-size:1em;line-height:1.6;margin-bottom:1.25em;text-rendering:optimizeLegibility}
+p aside{font-size:.875em;line-height:1.35;font-style:italic}
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{font-family:"Open Sans","DejaVu Sans",sans-serif;font-weight:300;font-style:normal;color:#ba3925;text-rendering:optimizeLegibility;margin-top:1em;margin-bottom:.5em;line-height:1.0125em}
+h1 small,h2 small,h3 small,#toctitle small,.sidebarblock>.content>.title small,h4 small,h5 small,h6 small{font-size:60%;color:#e99b8f;line-height:0}
+h1{font-size:2.125em}
+h2{font-size:1.6875em}
+h3,#toctitle,.sidebarblock>.content>.title{font-size:1.375em}
+h4,h5{font-size:1.125em}
+h6{font-size:1em}
+hr{border:solid #dddddf;border-width:1px 0 0;clear:both;margin:1.25em 0 1.1875em;height:0}
+em,i{font-style:italic;line-height:inherit}
+strong,b{font-weight:bold;line-height:inherit}
+small{font-size:60%;line-height:inherit}
+code{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;font-weight:400;color:rgba(0,0,0,.9)}
+ul,ol,dl{font-size:1em;line-height:1.6;margin-bottom:1.25em;list-style-position:outside;font-family:inherit}
+ul,ol{margin-left:1.5em}
+ul li ul,ul li ol{margin-left:1.25em;margin-bottom:0;font-size:1em}
+ul.square li ul,ul.circle li ul,ul.disc li ul{list-style:inherit}
+ul.square{list-style-type:square}
+ul.circle{list-style-type:circle}
+ul.disc{list-style-type:disc}
+ol li ul,ol li ol{margin-left:1.25em;margin-bottom:0}
+dl dt{margin-bottom:.3125em;font-weight:bold}
+dl dd{margin-bottom:1.25em}
+abbr,acronym{text-transform:uppercase;font-size:90%;color:rgba(0,0,0,.8);border-bottom:1px dotted #ddd;cursor:help}
+abbr{text-transform:none}
+blockquote{margin:0 0 1.25em;padding:.5625em 1.25em 0 1.1875em;border-left:1px solid #ddd}
+blockquote cite{display:block;font-size:.9375em;color:rgba(0,0,0,.6)}
+blockquote cite::before{content:"\2014 \0020"}
+blockquote cite a,blockquote cite a:visited{color:rgba(0,0,0,.6)}
+blockquote,blockquote p{line-height:1.6;color:rgba(0,0,0,.85)}
+@media screen and (min-width:768px){h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2}
+h1{font-size:2.75em}
+h2{font-size:2.3125em}
+h3,#toctitle,.sidebarblock>.content>.title{font-size:1.6875em}
+h4{font-size:1.4375em}}
+table{background:#fff;margin-bottom:1.25em;border:solid 1px #dedede}
+table thead,table tfoot{background:#f7f8f7}
+table thead tr th,table thead tr td,table tfoot tr th,table tfoot tr td{padding:.5em .625em .625em;font-size:inherit;color:rgba(0,0,0,.8);text-align:left}
+table tr th,table tr td{padding:.5625em .625em;font-size:inherit;color:rgba(0,0,0,.8)}
+table tr.even,table tr.alt{background:#f8f8f7}
+table thead tr th,table tfoot tr th,table tbody tr td,table tr td,table tfoot tr td{display:table-cell;line-height:1.6}
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2;word-spacing:-.05em}
+h1 strong,h2 strong,h3 strong,#toctitle strong,.sidebarblock>.content>.title strong,h4 strong,h5 strong,h6 strong{font-weight:400}
+.clearfix::before,.clearfix::after,.float-group::before,.float-group::after{content:" ";display:table}
+.clearfix::after,.float-group::after{clear:both}
+:not(pre):not([class^=L])>code{font-size:.9375em;font-style:normal!important;letter-spacing:0;padding:.1em .5ex;word-spacing:-.15em;background:#f7f7f8;-webkit-border-radius:4px;border-radius:4px;line-height:1.45;text-rendering:optimizeSpeed;word-wrap:break-word}
+:not(pre)>code.nobreak{word-wrap:normal}
+:not(pre)>code.nowrap{white-space:nowrap}
+pre{color:rgba(0,0,0,.9);font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;line-height:1.45;text-rendering:optimizeSpeed}
+pre code,pre pre{color:inherit;font-size:inherit;line-height:inherit}
+pre>code{display:block}
+pre.nowrap,pre.nowrap pre{white-space:pre;word-wrap:normal}
+em em{font-style:normal}
+strong strong{font-weight:400}
+.keyseq{color:rgba(51,51,51,.8)}
+kbd{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;display:inline-block;color:rgba(0,0,0,.8);font-size:.65em;line-height:1.45;background:#f7f7f7;border:1px solid #ccc;-webkit-border-radius:3px;border-radius:3px;-webkit-box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em white inset;box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em #fff inset;margin:0 .15em;padding:.2em .5em;vertical-align:middle;position:relative;top:-.1em;white-space:nowrap}
+.keyseq kbd:first-child{margin-left:0}
+.keyseq kbd:last-child{margin-right:0}
+.menuseq,.menuref{color:#000}
+.menuseq b:not(.caret),.menuref{font-weight:inherit}
+.menuseq{word-spacing:-.02em}
+.menuseq b.caret{font-size:1.25em;line-height:.8}
+.menuseq i.caret{font-weight:bold;text-align:center;width:.45em}
+b.button::before,b.button::after{position:relative;top:-1px;font-weight:400}
+b.button::before{content:"[";padding:0 3px 0 2px}
+b.button::after{content:"]";padding:0 2px 0 3px}
+p a>code:hover{color:rgba(0,0,0,.9)}
+#header,#content,#footnotes,#footer{width:100%;margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0;max-width:62.5em;*zoom:1;position:relative;padding-left:.9375em;padding-right:.9375em}
+#header::before,#header::after,#content::before,#content::after,#footnotes::before,#footnotes::after,#footer::before,#footer::after{content:" ";display:table}
+#header::after,#content::after,#footnotes::after,#footer::after{clear:both}
+#content{margin-top:1.25em}
+#content::before{content:none}
+#header>h1:first-child{color:rgba(0,0,0,.85);margin-top:2.25rem;margin-bottom:0}
+#header>h1:first-child+#toc{margin-top:8px;border-top:1px solid #dddddf}
+#header>h1:only-child,body.toc2 #header>h1:nth-last-child(2){border-bottom:1px solid #dddddf;padding-bottom:8px}
+#header .details{border-bottom:1px solid #dddddf;line-height:1.45;padding-top:.25em;padding-bottom:.25em;padding-left:.25em;color:rgba(0,0,0,.6);display:-ms-flexbox;display:-webkit-flex;display:flex;-ms-flex-flow:row wrap;-webkit-flex-flow:row wrap;flex-flow:row wrap}
+#header .details span:first-child{margin-left:-.125em}
+#header .details span.email a{color:rgba(0,0,0,.85)}
+#header .details br{display:none}
+#header .details br+span::before{content:"\00a0\2013\00a0"}
+#header .details br+span.author::before{content:"\00a0\22c5\00a0";color:rgba(0,0,0,.85)}
+#header .details br+span#revremark::before{content:"\00a0|\00a0"}
+#header #revnumber{text-transform:capitalize}
+#header #revnumber::after{content:"\00a0"}
+#content>h1:first-child:not([class]){color:rgba(0,0,0,.85);border-bottom:1px solid #dddddf;padding-bottom:8px;margin-top:0;padding-top:1rem;margin-bottom:1.25rem}
+#toc{border-bottom:1px solid #e7e7e9;padding-bottom:.5em}
+#toc>ul{margin-left:.125em}
+#toc ul.sectlevel0>li>a{font-style:italic}
+#toc ul.sectlevel0 ul.sectlevel1{margin:.5em 0}
+#toc ul{font-family:"Open Sans","DejaVu Sans",sans-serif;list-style-type:none}
+#toc li{line-height:1.3334;margin-top:.3334em}
+#toc a{text-decoration:none}
+#toc a:active{text-decoration:underline}
+#toctitle{color:#7a2518;font-size:1.2em}
+@media screen and (min-width:768px){#toctitle{font-size:1.375em}
+body.toc2{padding-left:15em;padding-right:0}
+#toc.toc2{margin-top:0!important;background:#f8f8f7;position:fixed;width:15em;left:0;top:0;border-right:1px solid #e7e7e9;border-top-width:0!important;border-bottom-width:0!important;z-index:1000;padding:1.25em 1em;height:100%;overflow:auto}
+#toc.toc2 #toctitle{margin-top:0;margin-bottom:.8rem;font-size:1.2em}
+#toc.toc2>ul{font-size:.9em;margin-bottom:0}
+#toc.toc2 ul ul{margin-left:0;padding-left:1em}
+#toc.toc2 ul.sectlevel0 ul.sectlevel1{padding-left:0;margin-top:.5em;margin-bottom:.5em}
+body.toc2.toc-right{padding-left:0;padding-right:15em}
+body.toc2.toc-right #toc.toc2{border-right-width:0;border-left:1px solid #e7e7e9;left:auto;right:0}}
+@media screen and (min-width:1280px){body.toc2{padding-left:20em;padding-right:0}
+#toc.toc2{width:20em}
+#toc.toc2 #toctitle{font-size:1.375em}
+#toc.toc2>ul{font-size:.95em}
+#toc.toc2 ul ul{padding-left:1.25em}
+body.toc2.toc-right{padding-left:0;padding-right:20em}}
+#content #toc{border-style:solid;border-width:1px;border-color:#e0e0dc;margin-bottom:1.25em;padding:1.25em;background:#f8f8f7;-webkit-border-radius:4px;border-radius:4px}
+#content #toc>:first-child{margin-top:0}
+#content #toc>:last-child{margin-bottom:0}
+#footer{max-width:100%;background:rgba(0,0,0,.8);padding:1.25em}
+#footer-text{color:rgba(255,255,255,.8);line-height:1.44}
+#content{margin-bottom:.625em}
+.sect1{padding-bottom:.625em}
+@media screen and (min-width:768px){#content{margin-bottom:1.25em}
+.sect1{padding-bottom:1.25em}}
+.sect1:last-child{padding-bottom:0}
+.sect1+.sect1{border-top:1px solid #e7e7e9}
+#content h1>a.anchor,h2>a.anchor,h3>a.anchor,#toctitle>a.anchor,.sidebarblock>.content>.title>a.anchor,h4>a.anchor,h5>a.anchor,h6>a.anchor{position:absolute;z-index:1001;width:1.5ex;margin-left:-1.5ex;display:block;text-decoration:none!important;visibility:hidden;text-align:center;font-weight:400}
+#content h1>a.anchor::before,h2>a.anchor::before,h3>a.anchor::before,#toctitle>a.anchor::before,.sidebarblock>.content>.title>a.anchor::before,h4>a.anchor::before,h5>a.anchor::before,h6>a.anchor::before{content:"\00A7";font-size:.85em;display:block;padding-top:.1em}
+#content h1:hover>a.anchor,#content h1>a.anchor:hover,h2:hover>a.anchor,h2>a.anchor:hover,h3:hover>a.anchor,#toctitle:hover>a.anchor,.sidebarblock>.content>.title:hover>a.anchor,h3>a.anchor:hover,#toctitle>a.anchor:hover,.sidebarblock>.content>.title>a.anchor:hover,h4:hover>a.anchor,h4>a.anchor:hover,h5:hover>a.anchor,h5>a.anchor:hover,h6:hover>a.anchor,h6>a.anchor:hover{visibility:visible}
+#content h1>a.link,h2>a.link,h3>a.link,#toctitle>a.link,.sidebarblock>.content>.title>a.link,h4>a.link,h5>a.link,h6>a.link{color:#ba3925;text-decoration:none}
+#content h1>a.link:hover,h2>a.link:hover,h3>a.link:hover,#toctitle>a.link:hover,.sidebarblock>.content>.title>a.link:hover,h4>a.link:hover,h5>a.link:hover,h6>a.link:hover{color:#a53221}
+details,.audioblock,.imageblock,.literalblock,.listingblock,.stemblock,.videoblock{margin-bottom:1.25em}
+details>summary:first-of-type{cursor:pointer;display:list-item;outline:none;margin-bottom:.75em}
+.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{text-rendering:optimizeLegibility;text-align:left;font-family:"Noto Serif","DejaVu Serif",serif;font-size:1rem;font-style:italic}
+table.tableblock.fit-content>caption.title{white-space:nowrap;width:0}
+.paragraph.lead>p,#preamble>.sectionbody>[class="paragraph"]:first-of-type p{font-size:1.21875em;line-height:1.6;color:rgba(0,0,0,.85)}
+table.tableblock #preamble>.sectionbody>[class="paragraph"]:first-of-type p{font-size:inherit}
+.admonitionblock>table{border-collapse:separate;border:0;background:none;width:100%}
+.admonitionblock>table td.icon{text-align:center;width:80px}
+.admonitionblock>table td.icon img{max-width:none}
+.admonitionblock>table td.icon .title{font-weight:bold;font-family:"Open Sans","DejaVu Sans",sans-serif;text-transform:uppercase}
+.admonitionblock>table td.content{padding-left:1.125em;padding-right:1.25em;border-left:1px solid #dddddf;color:rgba(0,0,0,.6)}
+.admonitionblock>table td.content>:last-child>:last-child{margin-bottom:0}
+.exampleblock>.content{border-style:solid;border-width:1px;border-color:#e6e6e6;margin-bottom:1.25em;padding:1.25em;background:#fff;-webkit-border-radius:4px;border-radius:4px}
+.exampleblock>.content>:first-child{margin-top:0}
+.exampleblock>.content>:last-child{margin-bottom:0}
+.sidebarblock{border-style:solid;border-width:1px;border-color:#dbdbd6;margin-bottom:1.25em;padding:1.25em;background:#f3f3f2;-webkit-border-radius:4px;border-radius:4px}
+.sidebarblock>:first-child{margin-top:0}
+.sidebarblock>:last-child{margin-bottom:0}
+.sidebarblock>.content>.title{color:#7a2518;margin-top:0;text-align:center}
+.exampleblock>.content>:last-child>:last-child,.exampleblock>.content .olist>ol>li:last-child>:last-child,.exampleblock>.content .ulist>ul>li:last-child>:last-child,.exampleblock>.content .qlist>ol>li:last-child>:last-child,.sidebarblock>.content>:last-child>:last-child,.sidebarblock>.content .olist>ol>li:last-child>:last-child,.sidebarblock>.content .ulist>ul>li:last-child>:last-child,.sidebarblock>.content .qlist>ol>li:last-child>:last-child{margin-bottom:0}
+.literalblock pre,.listingblock>.content>pre{-webkit-border-radius:4px;border-radius:4px;word-wrap:break-word;overflow-x:auto;padding:1em;font-size:.8125em}
+@media screen and (min-width:768px){.literalblock pre,.listingblock>.content>pre{font-size:.90625em}}
+@media screen and (min-width:1280px){.literalblock pre,.listingblock>.content>pre{font-size:1em}}
+.literalblock pre,.listingblock>.content>pre:not(.highlight),.listingblock>.content>pre[class="highlight"],.listingblock>.content>pre[class^="highlight "]{background:#f7f7f8}
+.literalblock.output pre{color:#f7f7f8;background:rgba(0,0,0,.9)}
+.listingblock>.content{position:relative}
+.listingblock code[data-lang]::before{display:none;content:attr(data-lang);position:absolute;font-size:.75em;top:.425rem;right:.5rem;line-height:1;text-transform:uppercase;color:inherit;opacity:.5}
+.listingblock:hover code[data-lang]::before{display:block}
+.listingblock.terminal pre .command::before{content:attr(data-prompt);padding-right:.5em;color:inherit;opacity:.5}
+.listingblock.terminal pre .command:not([data-prompt])::before{content:"$"}
+.listingblock pre.highlightjs{padding:0}
+.listingblock pre.highlightjs>code{padding:1em;-webkit-border-radius:4px;border-radius:4px}
+.listingblock pre.prettyprint{border-width:0}
+.prettyprint{background:#f7f7f8}
+pre.prettyprint .linenums{line-height:1.45;margin-left:2em}
+pre.prettyprint li{background:none;list-style-type:inherit;padding-left:0}
+pre.prettyprint li code[data-lang]::before{opacity:1}
+pre.prettyprint li:not(:first-child) code[data-lang]::before{display:none}
+table.linenotable{border-collapse:separate;border:0;margin-bottom:0;background:none}
+table.linenotable td[class]{color:inherit;vertical-align:top;padding:0;line-height:inherit;white-space:normal}
+table.linenotable td.code{padding-left:.75em}
+table.linenotable td.linenos{border-right:1px solid currentColor;opacity:.35;padding-right:.5em}
+pre.pygments .lineno{border-right:1px solid currentColor;opacity:.35;display:inline-block;margin-right:.75em}
+pre.pygments .lineno::before{content:"";margin-right:-.125em}
+.quoteblock{margin:0 1em 1.25em 1.5em;display:table}
+.quoteblock>.title{margin-left:-1.5em;margin-bottom:.75em}
+.quoteblock blockquote,.quoteblock p{color:rgba(0,0,0,.85);font-size:1.15rem;line-height:1.75;word-spacing:.1em;letter-spacing:0;font-style:italic;text-align:justify}
+.quoteblock blockquote{margin:0;padding:0;border:0}
+.quoteblock blockquote::before{content:"\201c";float:left;font-size:2.75em;font-weight:bold;line-height:.6em;margin-left:-.6em;color:#7a2518;text-shadow:0 1px 2px rgba(0,0,0,.1)}
+.quoteblock blockquote>.paragraph:last-child p{margin-bottom:0}
+.quoteblock .attribution{margin-top:.75em;margin-right:.5ex;text-align:right}
+.verseblock{margin:0 1em 1.25em}
+.verseblock pre{font-family:"Open Sans","DejaVu Sans",sans;font-size:1.15rem;color:rgba(0,0,0,.85);font-weight:300;text-rendering:optimizeLegibility}
+.verseblock pre strong{font-weight:400}
+.verseblock .attribution{margin-top:1.25rem;margin-left:.5ex}
+.quoteblock .attribution,.verseblock .attribution{font-size:.9375em;line-height:1.45;font-style:italic}
+.quoteblock .attribution br,.verseblock .attribution br{display:none}
+.quoteblock .attribution cite,.verseblock .attribution cite{display:block;letter-spacing:-.025em;color:rgba(0,0,0,.6)}
+.quoteblock.abstract blockquote::before,.quoteblock.excerpt blockquote::before,.quoteblock .quoteblock blockquote::before{display:none}
+.quoteblock.abstract blockquote,.quoteblock.abstract p,.quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{line-height:1.6;word-spacing:0}
+.quoteblock.abstract{margin:0 1em 1.25em;display:block}
+.quoteblock.abstract>.title{margin:0 0 .375em;font-size:1.15em;text-align:center}
+.quoteblock.excerpt,.quoteblock .quoteblock{margin:0 0 1.25em;padding:0 0 .25em 1em;border-left:.25em solid #dddddf}
+.quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{color:inherit;font-size:1.0625rem}
+.quoteblock.excerpt .attribution,.quoteblock .quoteblock .attribution{color:inherit;text-align:left;margin-right:0}
+table.tableblock{max-width:100%;border-collapse:separate}
+p.tableblock:last-child{margin-bottom:0}
+td.tableblock>.content>:last-child{margin-bottom:-1.25em}
+td.tableblock>.content>:last-child.sidebarblock{margin-bottom:0}
+table.tableblock,th.tableblock,td.tableblock{border:0 solid #dedede}
+table.grid-all>thead>tr>.tableblock,table.grid-all>tbody>tr>.tableblock{border-width:0 1px 1px 0}
+table.grid-all>tfoot>tr>.tableblock{border-width:1px 1px 0 0}
+table.grid-cols>*>tr>.tableblock{border-width:0 1px 0 0}
+table.grid-rows>thead>tr>.tableblock,table.grid-rows>tbody>tr>.tableblock{border-width:0 0 1px}
+table.grid-rows>tfoot>tr>.tableblock{border-width:1px 0 0}
+table.grid-all>*>tr>.tableblock:last-child,table.grid-cols>*>tr>.tableblock:last-child{border-right-width:0}
+table.grid-all>tbody>tr:last-child>.tableblock,table.grid-all>thead:last-child>tr>.tableblock,table.grid-rows>tbody>tr:last-child>.tableblock,table.grid-rows>thead:last-child>tr>.tableblock{border-bottom-width:0}
+table.frame-all{border-width:1px}
+table.frame-sides{border-width:0 1px}
+table.frame-topbot,table.frame-ends{border-width:1px 0}
+table.stripes-all tr,table.stripes-odd tr:nth-of-type(odd),table.stripes-even tr:nth-of-type(even),table.stripes-hover tr:hover{background:#f8f8f7}
+th.halign-left,td.halign-left{text-align:left}
+th.halign-right,td.halign-right{text-align:right}
+th.halign-center,td.halign-center{text-align:center}
+th.valign-top,td.valign-top{vertical-align:top}
+th.valign-bottom,td.valign-bottom{vertical-align:bottom}
+th.valign-middle,td.valign-middle{vertical-align:middle}
+table thead th,table tfoot th{font-weight:bold}
+tbody tr th{display:table-cell;line-height:1.6;background:#f7f8f7}
+tbody tr th,tbody tr th p,tfoot tr th,tfoot tr th p{color:rgba(0,0,0,.8);font-weight:bold}
+p.tableblock>code:only-child{background:none;padding:0}
+p.tableblock{font-size:1em}
+ol{margin-left:1.75em}
+ul li ol{margin-left:1.5em}
+dl dd{margin-left:1.125em}
+dl dd:last-child,dl dd:last-child>:last-child{margin-bottom:0}
+ol>li p,ul>li p,ul dd,ol dd,.olist .olist,.ulist .ulist,.ulist .olist,.olist .ulist{margin-bottom:.625em}
+ul.checklist,ul.none,ol.none,ul.no-bullet,ol.no-bullet,ol.unnumbered,ul.unstyled,ol.unstyled{list-style-type:none}
+ul.no-bullet,ol.no-bullet,ol.unnumbered{margin-left:.625em}
+ul.unstyled,ol.unstyled{margin-left:0}
+ul.checklist{margin-left:.625em}
+ul.checklist li>p:first-child>.fa-square-o:first-child,ul.checklist li>p:first-child>.fa-check-square-o:first-child{width:1.25em;font-size:.8em;position:relative;bottom:.125em}
+ul.checklist li>p:first-child>input[type="checkbox"]:first-child{margin-right:.25em}
+ul.inline{display:-ms-flexbox;display:-webkit-box;display:flex;-ms-flex-flow:row wrap;-webkit-flex-flow:row wrap;flex-flow:row wrap;list-style:none;margin:0 0 .625em -1.25em}
+ul.inline>li{margin-left:1.25em}
+.unstyled dl dt{font-weight:400;font-style:normal}
+ol.arabic{list-style-type:decimal}
+ol.decimal{list-style-type:decimal-leading-zero}
+ol.loweralpha{list-style-type:lower-alpha}
+ol.upperalpha{list-style-type:upper-alpha}
+ol.lowerroman{list-style-type:lower-roman}
+ol.upperroman{list-style-type:upper-roman}
+ol.lowergreek{list-style-type:lower-greek}
+.hdlist>table,.colist>table{border:0;background:none}
+.hdlist>table>tbody>tr,.colist>table>tbody>tr{background:none}
+td.hdlist1,td.hdlist2{vertical-align:top;padding:0 .625em}
+td.hdlist1{font-weight:bold;padding-bottom:1.25em}
+.literalblock+.colist,.listingblock+.colist{margin-top:-.5em}
+.colist td:not([class]):first-child{padding:.4em .75em 0;line-height:1;vertical-align:top}
+.colist td:not([class]):first-child img{max-width:none}
+.colist td:not([class]):last-child{padding:.25em 0}
+.thumb,.th{line-height:0;display:inline-block;border:solid 4px #fff;-webkit-box-shadow:0 0 0 1px #ddd;box-shadow:0 0 0 1px #ddd}
+.imageblock.left{margin:.25em .625em 1.25em 0}
+.imageblock.right{margin:.25em 0 1.25em .625em}
+.imageblock>.title{margin-bottom:0}
+.imageblock.thumb,.imageblock.th{border-width:6px}
+.imageblock.thumb>.title,.imageblock.th>.title{padding:0 .125em}
+.image.left,.image.right{margin-top:.25em;margin-bottom:.25em;display:inline-block;line-height:0}
+.image.left{margin-right:.625em}
+.image.right{margin-left:.625em}
+a.image{text-decoration:none;display:inline-block}
+a.image object{pointer-events:none}
+sup.footnote,sup.footnoteref{font-size:.875em;position:static;vertical-align:super}
+sup.footnote a,sup.footnoteref a{text-decoration:none}
+sup.footnote a:active,sup.footnoteref a:active{text-decoration:underline}
+#footnotes{padding-top:.75em;padding-bottom:.75em;margin-bottom:.625em}
+#footnotes hr{width:20%;min-width:6.25em;margin:-.25em 0 .75em;border-width:1px 0 0}
+#footnotes .footnote{padding:0 .375em 0 .225em;line-height:1.3334;font-size:.875em;margin-left:1.2em;margin-bottom:.2em}
+#footnotes .footnote a:first-of-type{font-weight:bold;text-decoration:none;margin-left:-1.05em}
+#footnotes .footnote:last-of-type{margin-bottom:0}
+#content #footnotes{margin-top:-.625em;margin-bottom:0;padding:.75em 0}
+.gist .file-data>table{border:0;background:#fff;width:100%;margin-bottom:0}
+.gist .file-data>table td.line-data{width:99%}
+div.unbreakable{page-break-inside:avoid}
+.big{font-size:larger}
+.small{font-size:smaller}
+.underline{text-decoration:underline}
+.overline{text-decoration:overline}
+.line-through{text-decoration:line-through}
+.aqua{color:#00bfbf}
+.aqua-background{background:#00fafa}
+.black{color:#000}
+.black-background{background:#000}
+.blue{color:#0000bf}
+.blue-background{background:#0000fa}
+.fuchsia{color:#bf00bf}
+.fuchsia-background{background:#fa00fa}
+.gray{color:#606060}
+.gray-background{background:#7d7d7d}
+.green{color:#006000}
+.green-background{background:#007d00}
+.lime{color:#00bf00}
+.lime-background{background:#00fa00}
+.maroon{color:#600000}
+.maroon-background{background:#7d0000}
+.navy{color:#000060}
+.navy-background{background:#00007d}
+.olive{color:#606000}
+.olive-background{background:#7d7d00}
+.purple{color:#600060}
+.purple-background{background:#7d007d}
+.red{color:#bf0000}
+.red-background{background:#fa0000}
+.silver{color:#909090}
+.silver-background{background:#bcbcbc}
+.teal{color:#006060}
+.teal-background{background:#007d7d}
+.white{color:#bfbfbf}
+.white-background{background:#fafafa}
+.yellow{color:#bfbf00}
+.yellow-background{background:#fafa00}
+span.icon>.fa{cursor:default}
+a span.icon>.fa{cursor:inherit}
+.admonitionblock td.icon [class^="fa icon-"]{font-size:2.5em;text-shadow:1px 1px 2px rgba(0,0,0,.5);cursor:default}
+.admonitionblock td.icon .icon-note::before{content:"\f05a";color:#19407c}
+.admonitionblock td.icon .icon-tip::before{content:"\f0eb";text-shadow:1px 1px 2px rgba(155,155,0,.8);color:#111}
+.admonitionblock td.icon .icon-warning::before{content:"\f071";color:#bf6900}
+.admonitionblock td.icon .icon-caution::before{content:"\f06d";color:#bf3400}
+.admonitionblock td.icon .icon-important::before{content:"\f06a";color:#bf0000}
+.conum[data-value]{display:inline-block;color:#fff!important;background:rgba(0,0,0,.8);-webkit-border-radius:100px;border-radius:100px;text-align:center;font-size:.75em;width:1.67em;height:1.67em;line-height:1.67em;font-family:"Open Sans","DejaVu Sans",sans-serif;font-style:normal;font-weight:bold}
+.conum[data-value] *{color:#fff!important}
+.conum[data-value]+b{display:none}
+.conum[data-value]::after{content:attr(data-value)}
+pre .conum[data-value]{position:relative;top:-.125em}
+b.conum *{color:inherit!important}
+.conum:not([data-value]):empty{display:none}
+dt,th.tableblock,td.content,div.footnote{text-rendering:optimizeLegibility}
+h1,h2,p,td.content,span.alt{letter-spacing:-.01em}
+p strong,td.content strong,div.footnote strong{letter-spacing:-.005em}
+p,blockquote,dt,td.content,span.alt{font-size:1.0625rem}
+p{margin-bottom:1.25rem}
+.sidebarblock p,.sidebarblock dt,.sidebarblock td.content,p.tableblock{font-size:1em}
+.exampleblock>.content{background:#fffef7;border-color:#e0e0dc;-webkit-box-shadow:0 1px 4px #e0e0dc;box-shadow:0 1px 4px #e0e0dc}
+.print-only{display:none!important}
+@page{margin:1.25cm .75cm}
+@media print{*{-webkit-box-shadow:none!important;box-shadow:none!important;text-shadow:none!important}
+html{font-size:80%}
+a{color:inherit!important;text-decoration:underline!important}
+a.bare,a[href^="#"],a[href^="mailto:"]{text-decoration:none!important}
+a[href^="http:"]:not(.bare)::after,a[href^="https:"]:not(.bare)::after{content:"(" attr(href) ")";display:inline-block;font-size:.875em;padding-left:.25em}
+abbr[title]::after{content:" (" attr(title) ")"}
+pre,blockquote,tr,img,object,svg{page-break-inside:avoid}
+thead{display:table-header-group}
+svg{max-width:100%}
+p,blockquote,dt,td.content{font-size:1em;orphans:3;widows:3}
+h2,h3,#toctitle,.sidebarblock>.content>.title{page-break-after:avoid}
+#toc,.sidebarblock,.exampleblock>.content{background:none!important}
+#toc{border-bottom:1px solid #dddddf!important;padding-bottom:0!important}
+body.book #header{text-align:center}
+body.book #header>h1:first-child{border:0!important;margin:2.5em 0 1em}
+body.book #header .details{border:0!important;display:block;padding:0!important}
+body.book #header .details span:first-child{margin-left:0!important}
+body.book #header .details br{display:block}
+body.book #header .details br+span::before{content:none!important}
+body.book #toc{border:0!important;text-align:left!important;padding:0!important;margin:0!important}
+body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-break-before:always}
+.listingblock code[data-lang]::before{display:block}
+#footer{padding:0 .9375em}
+.hide-on-print{display:none!important}
+.print-only{display:block!important}
+.hide-for-print{display:none!important}
+.show-for-print{display:inherit!important}}
+@media print,amzn-kf8{#header>h1:first-child{margin-top:1.25rem}
+.sect1{padding:0!important}
+.sect1+.sect1{border:0}
+#footer{background:none}
+#footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
+@media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body class="book">
+<div id="header">
+<h1>Diseño Modular</h1>
+<div class="details">
+<span id="author" class="author">Santa Tecla</span><br>
+<span id="email" class="email"><a href="mailto:parqueNaturalSantaTecla@gmail.com">parqueNaturalSantaTecla@gmail.com</a></span><br>
+<span id="revnumber">version 0.0.1</span>
+</div>
+<div id="toc" class="toc">
+<div id="toctitle">Índice</div>
+<ul class="sectlevel0">
+<li><a href="#justificación-por-qué"><strong>Justificación</strong>: ¿Por qué?</a></li>
+<li><a href="#definición-qué"><strong>Definición</strong>: ¿Qué?</a></li>
+<li><a href="#objetivos-para-qué"><strong>Objetivos</strong>: ¿Para qué?</a></li>
+<li><a href="#descripción-cómo"><strong>Descripción</strong>: ¿Cómo?</a>
+<ul class="sectlevel1">
+<li><a href="#diseño-equilibrado">Diseño Equilibrado</a>
+<ul class="sectlevel2">
+<li><a href="#distribución-de-responsabilidades">Distribución de Responsabilidades</a></li>
+<li><a href="#número-de-módulos">Número de módulos</a></li>
+<li><a href="#diseño-dirigido-por-niveles">Diseño dirigido por Niveles</a></li>
+</ul>
+</li>
+<li><a href="#interfaz">Interfaz</a>
+<ul class="sectlevel2">
+<li><a href="#interfaz-suficiente-completa-y-primitiva">Interfaz Suficiente, Completa y Primitiva</a></li>
+<li><a href="#principios-del-menor-compromiso-y-la-menor-sorpresa">Principios del Menor Compromiso y la Menor Sorpresa</a></li>
+<li><a href="#código-sucio-por-clases-alternativas-con-interfaces-diferentes">Código Sucio por Clases Alternativas con Interfaces Diferentes</a></li>
+</ul>
+</li>
+<li><a href="#diseño-por-contrato">Diseño por Contrato</a></li>
+<li><a href="#implemetación">Implemetación</a>
+<ul class="sectlevel2">
+<li><a href="#cohesión">Cohesión</a></li>
+<li><a href="#acoplamiento">Acoplamiento</a></li>
+<li><a href="#tamaño">Tamaño</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#bibliografía"><strong>Bibliografía</strong></a></li>
+</ul>
+</div>
+</div>
+<div id="content">
+<h1 id="justificación-por-qué" class="sect0"><strong>Justificación</strong>: ¿Por qué?</h1>
+<div class="openblock partintro">
+<div class="content">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 40%;">
+<col style="width: 60%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>Proyecto Software poco efectivo</p>
+<div class="ulist">
+<ul>
+<li>
+<p>porque tiene <strong>malas variables</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>tiempo incumplido</strong>,</p>
+</li>
+<li>
+<p><strong>ámbito incumplido</strong>,</p>
+</li>
+<li>
+<p><strong>coste incumplido</strong>,</p>
+</li>
+<li>
+<p><em>mala calidad</em></p>
+<div class="ulist">
+<ul>
+<li>
+<p><em>porque tiene mala mantenibilidad</em></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="imageblock">
+<div class="content">
+<img src="images/ProyectoSoftwareNoEfectivo.svg" alt="ProyectoSoftwareNoEfectivo" width="829" height="629">
+</div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 40%;">
+<col style="width: 60%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>Producto Software poco efectivo</p>
+<div class="ulist">
+<ul>
+<li>
+<p>porque tiene <strong>mala calidad</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Poco <strong>eficiente</strong></p>
+</li>
+<li>
+<p>Poco eficaz en <strong>corrección</strong>, <strong>usabilidad</strong>, <strong>escalabilidad</strong>, &#8230;&#8203;</p>
+<div class="ulist">
+<ul>
+<li>
+<p>porque tiene <strong>mala mantenibilidad</strong>, de la que depende la eficiencia y la eficacia anteriores, porque es</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>viscoso</strong>, porque no se puede entender con facilidad</p>
+</li>
+<li>
+<p><strong>rígido</strong>, porque no se puede cambiar con facilidad</p>
+</li>
+<li>
+<p><strong>frágil</strong>, porque no se puede probar con facilidad</p>
+</li>
+<li>
+<p><strong>inmovil</strong>, porque no se puede reutilizar con facilidad</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="imageblock">
+<div class="content">
+<img src="images/ProductoSoftwareNoEfectivo.svg" alt="ProductoSoftwareNoEfectivo" width="835" height="629">
+</div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Experto en la información</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Principio general</strong> de la asignación de responsabilidades a los objetos, aplicación directa del modelo del dominio</p>
+</li>
+<li>
+<p><strong>Asignar la responsabilidad a la clase que tiene la información necesaria para cumplir con la responsabilidad</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Tenga en cuenta que el cumplimiento de una responsabilidad a menudo requiere la información que se transmite a través de diferentes clases de objetos. Esto implica que hay <strong>muchos expertos "parciales" de información</strong> que colaborarán en la
+tarea.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Tiene una <strong>analogía en el mundo real</strong>, como muchas cosas en la tecnología de objetos. Conduce a diseños en los que un objeto de software hace las <strong>operaciones que realizan normalmente las cosas del mundo real inanimadas</strong> a las que representa.</p>
+</li>
+<li>
+<p>Hay situaciones en las que una <strong>solución sugerida por Expertos es indeseable</strong>, por lo general a causa de problemas en el <strong>acoplamiento</strong> y <strong>cohesión</strong>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Estos problemas indican violación de un principio básico de diseño: <strong>separación de las principales asuntos</strong> del sistema. El apoyo a una separación de las principales asuntos mejora de acoplamiento y la cohesión en un diseño.</p>
+</li>
+<li>
+<p>Por lo tanto, <strong>a pesar de que por el Experto podría haber alguna justificación para poner la responsabilidad, por otros motivos (por lo general de cohesión y acoplamiento), se trata de un mal diseño</strong></p>
+</li>
+<li>
+<p><em>Por ejemplo: una aplicación de gestión educativa con la clase Alumno, que tenga interfaz de texto y gráfica, persistencia en base de datos, comunicaciones, &#8230;&#8203; Propone la clase Alumno (experto en la información) acoplamiento a tecnologías de interfaz, persistencia y comunicaciones, con la responsabilidad del CRUD de los datos del alumno (alta, baja, modificación y consulta de las notas, datos personales, &#8230;&#8203;) y mostrarse, persistir y comunicarse porque tiene la información para mostrarse, persistir y comunicarse! Por tanto, muy acoplada a muchas clases, poco cohesiva con muchas responsabilidades y, por tanto, muy grande</em></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/malDiseño.svg" alt="malDiseño" width="1021" height="684">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>El resultado del modelo del dominio con la mejor legibilidad <strong>no asegura un código mantenible, de calidad</strong>:</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 15%;">
+<col style="width: 85%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Viscoso</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Presencia de multitud de clases enormes con métodos enormes con acoplamientos cíclicos sin un nítido reparto de responsabiliades</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Rigido</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Responsabilidades repartidas por multitud de clases que requieren modificaciónes si cambian los requisitos correspondientes</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Inmovil</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Presencia de multitud de clases acopladas a multitud de clases de tecnologías de diversas tecnologías (GUI,
+comunicaciones, bases de datos, servicios, &#8230;&#8203;)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Frágil</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Ausencia de red de seguridad de pruebas unitarias por imposibilidad de realizar pruebas sobre las clases anteriores</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<h1 id="definición-qué" class="sect0"><strong>Definición</strong>: ¿Qué?</h1>
+<div class="openblock partintro">
+<div class="content">
+<div class="imageblock">
+<div class="content">
+<img src="images/escalera.jpg" alt="escalera">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Se basa en:</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 15%;">
+<col style="width: 85%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Sistemas complejos</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p><strong>Jerarquías de módulos</strong> con</p>
+</li>
+<li>
+<p><strong>patrones comunes</strong> y con</p>
+</li>
+<li>
+<p><strong>separación de asuntos</strong> y</p>
+</li>
+<li>
+<p><strong>elementos primitivos relativos</strong> que vienen de un</p>
+</li>
+<li>
+<p><strong>sistema anterior</strong> que funcionaba</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Método Cartesiano</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p><strong>Principio de duda o evidencia sistemática</strong>, no aceptar como verdadero algo hasta que se compruebe con evidencia, clara y distintamente, aquello que es realmente verdadero. Con la duda sistemática, se evita la prevención y la precipitación, aceptándose como cierto lo que sea evidentemente cierto.</p>
+</li>
+<li>
+<p><strong>Principio del análisis o descomposición</strong>, dividir y descomponer cada dificultad o problema en <strong>tantas partes como sea posible y necesarias para su comprensión</strong> y solución y resolverlas por separado.</p>
+</li>
+<li>
+<p><strong>Principio de la síntesis o la composición</strong>, conducir cuidadosamente los pensamientos y razonamientos, a partir de las formas más fáciles y simples de conocer para pasar gradualmente a los más difíciles, y así ir armando pensamientos para poder probar su funcionamiento.</p>
+</li>
+<li>
+<p><strong>Principio de la enumeración o de la verificación</strong>, hacer verificaciones, recuentos y revisiones para asegurarse de que nada fue omitido o pasado por alto, y poder comprobar si tu evidencia es falsa o verdadera</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Modelo del Dominio</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>Obtener la estructura de relaciones entre clases con buenas abstracciones e implementaciones mediante:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Análisis del lenguaje</strong>, sustantivos y verbos, cosificación!</p>
+</li>
+<li>
+<p><strong>Análisis clásico</strong>, tangibles, intangibles, personas, dispositivos, &#8230;&#8203;,</p>
+</li>
+<li>
+<p><strong>Análisis del dominio</strong>, pero acompañado por un experto</p>
+</li>
+<li>
+<p><strong>Diseño por reparto de responsabilidades</strong>, donde cada clase es responsable de lo que tiene que hacer, métodos, y de lo que tiene que conocer, atributos, para hacer lo que tiene que hacer,</p>
+</li>
+<li>
+<p><strong>Análisis de casos de uso</strong>, para buscar clases sistemáticamente por cada funcionalidad del sistema</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Legibilidad</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>Somos <strong>escritores</strong> y respetamos:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>buenos nombres, comentarios y formato</strong>,</p>
+</li>
+<li>
+<p><strong>estándares</strong>, consistencias y alarmas, <strong>DRY</strong> y <strong>código muerto</strong>,</p>
+</li>
+<li>
+<p><strong>YAGNI</strong>, enfoque, al grano!</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Diseño Modular</strong> incorpora tres criterios que debe cumplir todo módulo (método, clase y/o paquete):</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 15%;">
+<col style="width: 85%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Alta cohesión</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>Única responsabilidad, motivo de cambio, como máximo para cada método, clase y paquete</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Bajo acoplamiento</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>paquetes con 5 paquetes dependientes máxmio</p>
+</li>
+<li>
+<p>clases con 5 clases dependientes máximo</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Tamaño pequeño</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>paquetes con 20 clases máximo</p>
+</li>
+<li>
+<p>clases con 5 atributos máximo</p>
+</li>
+<li>
+<p>clases con 20 métodos máximo</p>
+</li>
+<li>
+<p>métodos con 2 paramétros máximo</p>
+</li>
+<li>
+<p>métodos con una media de 1,2 parámetros</p>
+</li>
+<li>
+<p>métodos con 25 líneas como máximo</p>
+</li>
+<li>
+<p>métodos con 3 niveles de anidación como máximo</p>
+</li>
+<li>
+<p>métodos con una complejidad algorítmica, número de caminos, de 12 como máximo</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="imageblock">
+<div class="content">
+<img src="images/buenModular.jpg" alt="buenModular">
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="imageblock">
+<div class="content">
+<img src="images/malModular.jpg" alt="malModular">
+</div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<h1 id="objetivos-para-qué" class="sect0"><strong>Objetivos</strong>: ¿Para qué?</h1>
+<div class="openblock partintro">
+<div class="content">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 40%;">
+<col style="width: 60%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>Proyecto Software efectivo</p>
+<div class="ulist">
+<ul>
+<li>
+<p>porque tiene <strong>buenas variables</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>tiempo cumplido</strong>,</p>
+</li>
+<li>
+<p><strong>ámbito cumplido</strong>,</p>
+</li>
+<li>
+<p><strong>coste cumplido</strong>,</p>
+</li>
+<li>
+<p><em>buena calidad</em></p>
+<div class="ulist">
+<ul>
+<li>
+<p><em>porque tiene buena mantenibilidad</em></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="imageblock">
+<div class="content">
+<img src="images/disenyoProyectoSoftwareEfectivo.svg" alt="disenyoProyectoSoftwareEfectivo" width="686" height="629">
+</div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 40%;">
+<col style="width: 60%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>Producto Software efectivo</p>
+<div class="ulist">
+<ul>
+<li>
+<p>porque tiene <strong>buena calidad</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Es <strong>eficiente</strong></p>
+</li>
+<li>
+<p>Es eficaz en <strong>corrección</strong>, <strong>usabilidad</strong>, <strong>escalabilidad</strong>, &#8230;&#8203;</p>
+</li>
+<li>
+<p>porque tiene <strong>buena mantenibilidad</strong>, de la que depende la eficiencia y la eficacia anteriores, porque es</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>ligero</strong>, porque sí se puede entender con facilidad</p>
+</li>
+<li>
+<p><strong>flexible</strong>, porque sí se puede cambiar con facilidad</p>
+</li>
+<li>
+<p><strong>robusto</strong>, porque sí se puede probar con facilidad</p>
+</li>
+<li>
+<p><strong>reusable</strong>, porque sí se puede reutilizar con facilidad</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="imageblock">
+<div class="content">
+<img src="images/disenyoProductoSoftwareEfectivo.svg" alt="disenyoProductoSoftwareEfectivo" width="619" height="629">
+</div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 15%;">
+<col style="width: 85%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Fluido</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Presencia de multitud de clases pequeñas con métodos pequeños con pequeños acoplamientos acíclicos que puedo recorrer de arriba abajo (top/down o bottom/up), <strong>jerarquía de clases pequeñas, sin ciclos</strong>!</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Flexible</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Reparto de responsabilidades equilibrado y centralizado en clases que requiere modificarse únicamente si cambian los requisitos correspondientes, <strong>jerarquías de clases con alta cohesión, sin ciclos</strong>!</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Resuable</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Presencia de multitud de <strong>clases pequeñas, cohesivas y poco acopladas</strong> a tecnologías, algoritmos, &#8230;&#8203;!</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Robusto</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Presencia de red de seguridad de pruebas unitarias por posibilidad de realizar pruebas sobre las clases anteriores &#8230;&#8203; <strong>jerarquía equilibrada de clases pequeñas con alta cohesión y bajo acoplamiento</strong>!</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<h1 id="descripción-cómo" class="sect0"><strong>Descripción</strong>: ¿Cómo?</h1>
+<div class="sect1">
+<h2 id="diseño-equilibrado">Diseño Equilibrado</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="distribución-de-responsabilidades">Distribución de Responsabilidades</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p><strong>Distribución de Responsabilidades</strong>, también de forma <strong>equilibrada</strong>, con una media y una desviación típica reducidas de la carga relativa de la responsabilidad total</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Hay que partir el problema, no trasladarlo!</strong></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="imageblock">
+<div class="content">
+<img src="images/repartoResponsabilidades.jpg" alt="repartoResponsabilidades">
+</div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="número-de-módulos">Número de módulos</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Se parte un problema para ser efectivos, eficaces y eficientes, resolviendo problemas más pequeños pero cuando <strong>el problema requiere partirse y no más!</strong></p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p><strong>Costes de la modularización</strong>, es un compromiso, un <strong>equilibrio</strong>, entre:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>el <strong>coste de desarrollo</strong> de cada módulo, pocos muy grandes es más costoso que muchos muy pequeños</p>
+</li>
+<li>
+<p>el <strong>coste de integración</strong> de todos los módulos, muy pocos cuesta poco y muchos cuesta mucho</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="imageblock">
+<div class="content">
+<img src="images/compromisos.jpg" alt="compromisos">
+</div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"><strong>Aplicación mediana (100.000 LOC)</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Muchos módulos</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Número equilibrado de módulos</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Pocos módulos</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Costes de Desarrollo</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><em>Reducido</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Equilibrado</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Disparado</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Costes de Integración</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Disparado</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Equilibrado</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><em>Reducido</em></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Costes Totales</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Disparado</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Equilibrado</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Disparado</strong></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="diseño-dirigido-por-niveles">Diseño dirigido por Niveles</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Diseño descendente</strong> (<em>top/down</em>);</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/hood.svg" alt="hood" width="624" height="727">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Diseño ascendente</strong> (<em>bottom/up</em>):</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Se comienza con las clases básicas (hojas en las jerarquías) adivinando la responsabilidad necesaria para las superiores</p>
+</li>
+<li>
+<p>Se continúa con clases intermedias (basadas en las hojas de las jerarquías) adivinando la responsabilidad necesaria para las superiores</p>
+</li>
+<li>
+<p>Se repite el paso segundo hasta llegar a la clase principal del sistema</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Comparativa</strong></p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top"><strong>Diseño descendente</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Diseño ascendente</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Pruebas</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Imposible realizar pruebas unitarias hasta llegar a la implantación de las clases hoja de las jerarquías a no ser que se desarrollen <strong>"sustitutos"</strong> (<em>mocks</em>) para todas las clases en cada prueba</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Se pueden realizar <strong>pruebas unitarias/familiares desde la primera clase</strong></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Reparto de responsabilidades</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Muy sencillo <strong>bajo demanda de clases anteriores</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Muy complejo <strong>adivinando la responsabilidad</strong>, requiere mucha <strong>experiencia en desarrollo del software y en el dominio de la aplicación</strong></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p>En cualquier caso, en cada momento estás en un nivel de la jerarquía, sin ciclos, con un número limitado de elementos</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="interfaz">Interfaz</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="interfaz-suficiente-completa-y-primitiva">Interfaz Suficiente, Completa y Primitiva</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Por <strong>suficiente</strong>, queremos decir que la clase o módulo captura suficientes características de la abstracción para permitir una interacción significativa y eficiente. De otra manera el componente será inútil. En la práctica, violaciones de esta característica se detectan muy temprano; tales deficiencias se levantan casi <strong>cada vez que construimos un cliente</strong> que debe utilizar esta abstracción.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><em>Por ejemplo: Una clase conjunto de elementos, si ofrece eliminar un elemento deberá contemplar añadir un elemento</em></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Por <strong>completo</strong>, nos referimos a que la interfaz de la clase o módulo de captura todas las características significativas de la abstracción. Considerando que la suficiencia implica una interfaz mínima, una interfaz completa es una que <strong>cubre  todos los aspectos de la abstracción</strong>. Una clase o módulo completo es, pues, una cuya interfaz es lo suficientemente general como para ser comúnmente utilizable para cualquier cliente. La completitud es una cuestión subjetiva, y puede ser exagerada. Proporcionar todas las operaciones significativas para una abstracción particular, abruma al usuario y en general es innecesaria, ya que muchas operaciones de alto nivel pueden estar compuestas por las de bajo nivel.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><em>Por ejemplo: La clase cadena de caracteres contempla todas y cada una de las operaciones previsibles: esPalíndromo, esEmail, invertir, rimas, &#8230;&#8203;</em></p>
+</li>
+<li>
+<p>Operaciones <strong>primitivas</strong> son aquellas que puede ser <strong>implementadas de manera eficiente sólo si es dado el acceso a la representación subyacente de la abstracción</strong>. Una operación es indiscutiblemente primitiva si podemos
+implementarla sólo a través del acceso a la representación subyacente. Una operación que podría implementarse sobre
+las operaciones primitivas existentes, pero a costa de muchos más recursos computacionales, es también un candidato para su inclusión como una operación primitiva.</p>
+</li>
+<li>
+<p><em>Por ejemplo: En la clase conjunto de elementos, añadir un elemento es una operación primitiva pero añadir 4 elementos para un cliente particular no sería una operación primitiva porque podría apoyarse eficientemente en la anterior.</em></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="principios-del-menor-compromiso-y-la-menor-sorpresa">Principios del Menor Compromiso y la Menor Sorpresa</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Sinónimos</th>
+<th class="tableblock halign-left valign-top">Synonyms</th>
+<th class="tableblock halign-left valign-top">Libro</th>
+<th class="tableblock halign-left valign-top">Autor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Los nombresde las funciones deberían decirlo que hacen</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Function Names Should Say What They Do</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Smell Code (Clean Code)</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Robert Martin</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Antónimos</th>
+<th class="tableblock halign-left valign-top">Antonyms</th>
+<th class="tableblock halign-left valign-top">Libro</th>
+<th class="tableblock halign-left valign-top">Autor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Comportamiento obvio no está implementado</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Obvious Behavior Is Unimplemented</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Smell Code (Clean Code)</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Robert Martin</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Responsabilidad fuera de lugar</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Misplaced Responsibility</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Smell Code (Clean Code)</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Robert Martin</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="quoteblock">
+<blockquote>
+<strong>Principio del menor compromiso</strong>, a través del cual la interfaz de un objeto proporciona su <strong>comportamiento esencial, y nada más</strong>
+</blockquote>
+<div class="attribution">
+&#8212; Abelsony Sussman
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="quoteblock">
+<blockquote>
+<strong>Principio de la menor sorpresa</strong>, a través del cual una abstracción captura todo el <strong>comportamiento de un objeto, ni más ni menos, y no ofrece sorpresas o efectos secundarios</strong> que van más allá del ámbito de la abstracción
+</blockquote>
+<div class="attribution">
+&#8212; Booch
+</div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="código-sucio-por-clases-alternativas-con-interfaces-diferentes">Código Sucio por Clases Alternativas con Interfaces Diferentes</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Sinónimos</strong>:</p>
+</li>
+</ul>
+</div>
+<div class="quoteblock">
+<blockquote>
+Clases Alternativas con Diferentes interfaces (<em>Alternative Classes
+with Different Interfaces</em>)
+</blockquote>
+<div class="attribution">
+&#8212; Smell Code (Refactoring); Martin Fowler
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Justificación</strong>: Complejidad innecesaria</p>
+</li>
+<li>
+<p><strong>Solución</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Renombra los métodos que hacenlo mismo pero tienen nombre diferentes sin la oportuna sobrecarga.</p>
+</li>
+<li>
+<p>Mueve los métodos a clases padre o como poco la interfaz</p>
+</li>
+<li>
+<p>Mueve responsabilidades de las clases hasta que los métodos hacen lo mismo y tienen el mismo nombre: homogenizar el código</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="diseño-por-contrato">Diseño por Contrato</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>La corrección</strong> sólo tiene sentido en relación con una determinada especificación</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Un <strong>fallo</strong> es cuando un sistema software <strong>se aparta</strong> de su comportamiento especificado durante una de sus ejecuciones</p>
+</li>
+<li>
+<p>Un <strong>defecto</strong> es una propiedad de un sistema de software que pueden hacer que el sistema <strong>se aparte</strong> de su comportamiento especificado.</p>
+</li>
+<li>
+<p>Un <strong>error</strong> es una <strong>mala decision</strong> hecha durante el desarrollo de un sistema software que produce defectos</p>
+</li>
+<li>
+<p><strong>Un fallo es el hecho real y un defecto es posibilidad potencial</strong></p>
+</li>
+<li>
+<p><strong>Los fallos son debidos a los defectos los cuales resultan de los errores</strong></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Tiposde error</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Errores Excepcionales</strong>: producidos por recursos (ficheros, comunicaciones, bibliotecas, …) fuera del ámbito del software que los maneja.</p>
+</li>
+<li>
+<p><strong>Errores Lógicos</strong>: producidos por la lógica de un programa que no contempla todos los posibles valores de datos;</p>
+</li>
+<li>
+<p><strong>Contexto</strong>: ciertos errores (ej.: un valor negativo para calcular un factorial, una referencia sin la dirección de un objeto -null-, …) pueden ser un <strong>error lógico o excepcional dependiendo del software en el que se está desarrollando</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>En el desarrollo de una <strong>aplicación se debe responsabilizar de la detección y subsanación de los errores lógicos dentro de su ámbito en la fase de desarrollo y pruebas</strong>.</p>
+</li>
+<li>
+<p>En el desarrollo de una <strong>biblioteca NO se puede responsabilizar del uso indebido de los servicios prestados a las aplicaciones y NUNCA debe responsabilizarse de la subsanación de dichos errores</strong>. En estos casos, estos errores lógicos se considerarán excepcionales porque la causa del error está <strong>fuera de los límites del software</strong> de la biblioteca.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Gestión de Errores</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>La robustez, la capacidad del software de reaccionar a casos no incluidos en la especificación, de los posibles errores excepcionales se cubre generalmente con excepciones.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><em>Por ejemplo: abrir un fichero no existente o sobre un soporte dañado, envío y recepción de datos sin conexión en red o con la base de datos, uso inadecuado de una biblioteca, …</em></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>La corrección, la capacidad del software de ejecutar de acuerdo con sus especificaciones, de los posibles errores lógicos se cubre generalmente <strong>inadecuadamente con Programación defensiva</strong> y <strong>adecuadamente con Aserciones</strong></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Programación Defensiva</strong>: para obtener software fiable se debe diseñar cada componente de un sistema de modo que
+se proteja a sí mismo tanto como sea posible.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>La solución es que cada componente (método) compruebe la viabilidad de operar con <em>if-then-else</em>. Pero:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>No basta con informar por pantalla</strong> del error lógico porque no se puede acoplar dicho componente a la vista con tecnologías alternativas (consola, gráfica, móvil, web, …) y porque habrá que avisar al cliente para que tome las medidas oportunas ante el error</p>
+</li>
+<li>
+<p><strong>No basta con un código de error</strong> cuando no es posible acordar un valor particular de error (<em>0 ó -1</em>) si toda la gama es una posible solución</p>
+</li>
+<li>
+<p>En caso optar por la Programción Defensiva <strong>tanto el componente como su cliente aumentarán innecesariamente su complejidad</strong> con sentencias <em>if-then-else</em> tanto para confirmar la viablidaddel progreso del componente como para comprobar en todos y cada uno de los clientes la ausencia de error generada por el componente, lo cual además produce código duplicado.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Aserciones</strong>: es una expresión involucrada en algunas entidades del software y establece una propiedad que estas
+entidades <strong>deben satisfacer en ciertos estados de la ejecución</strong> del programa</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Es una sentencia del lenguaje que permite comprobar las suposiciones del estado del programa en ejecución. Cada aserción contiene una <strong>expresión lógica</strong> que se supone cierta cuando se ejecute la sentencia. En caso contrario, el <strong>sistema finaliza la ejecución</strong> del programa y <strong>avisa del error detectado</strong></p>
+</li>
+<li>
+<p>Estas aserciones se pueden usar:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>En producción</strong>, para ‘documentar formalmente’ (compilables) los límites del ámbito del componente sin efecto sobre la ejecución; o</p>
+</li>
+<li>
+<p><strong>En pre-producción</strong>, para compobraciones automáticas durante la ejecución y, en caso de error, elevar una excepción que termina la ejecución e informa claramente de lo que sucedió</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Diseño por Contrato</strong> es verlas relaciones entre una clase y sus cientes como un contrato formal expresando los derechos y las obligaciones de cada parte.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>La vista exterior de cada objeto define un contrato sobre aquellos objetos que pueden depender de él y el cual a su vez debe llevar a cabo en la vista interna del propio objeto, a menudo colaborando con otros. Este contrato establece todas las asunciones que un objeto cliente puede hacer sobre el comportamiento de un objeto servidor.</p>
+</li>
+<li>
+<p><strong>Objetivos</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Producir software correcto desde el principio porque es diseñado para ser correcto</p>
+</li>
+<li>
+<p>Obtener mucha mejor compresión del problema y sus eventuales soluciones</p>
+</li>
+<li>
+<p>Facilitar la tarea de documentación del software</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Protocolo</strong> es el conjunto entero de operaciones que un cliente puede realizar sobre un objeto junto con las “consideraciones legales” en los que pueden ser invocadas.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Para cada operación asociada con un objeto, se pueden definir precondiciones y postcondiciones: {P} A {Q}: donde A denota una operación; P y Q son aserciones sobre las propiedades de varias entidades involucradas; P es llamada precondición y Q postcondición.</p>
+</li>
+<li>
+<p>Cualquier ejecución de A, comienza en un estado que cumple P y terminará en un estadoque cumple Q</p>
+</li>
+<li>
+<p>Si la precondición es violada, significa que un cliente no ha satisfecho su parte del contrato y el servidor no puede proceder con fiabilidad.</p>
+</li>
+<li>
+<p>Si una postcondición es violada significa que un servidor no ha llevado a cabo suparte del contrato y sus cliente no pueden confiar en el comportamiento del servidor</p>
+</li>
+<li>
+<p>La pareja precondición/postcondición de una rutina describen el contrato que la rutina(servidor de un cierto servicio) define para sus usuarios (clientes del servicio)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Las Precondiciones</strong> atan al cliente con las restricciones sobre el estado de los parámetros y del objeto servidor que se deben cumplir para una llamada legítima a la operación y que funcione apropiadamente. Son una obligación para el
+cliente y un beneficio para el servidor.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Precondiciones fuertes</strong> <strong>exigen más al cliente para solicitar</strong> una tarea y facilitan el trabajo del servidor restringiendo las condiciones de partida</p>
+</li>
+<li>
+<p><strong>Precondiciones débiles</strong> exigen menos al cliente para solicitar una tarea pero <strong>complican el trabajo del servidor</strong> ante más amplitud en la condiciones de partida</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Las Postcondiciones</strong> atan al servidor con las restricciones sobre el estado del valor devuelto y del objeto servidor que se deben cumplir tras el retorno de la operación para que el cliente progrese adecuadamente. Son una obligación para el servidor y un beneficio para el cliente:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Postcondiciones fuertes</strong> <strong>exigen más al servidor que debe de cumplir dicha condición</strong> y facilitan al cliente con un resultado más restringido</p>
+</li>
+<li>
+<p><strong>Postcondiciones débiles</strong> exigen menos al servidor que debe de cumplir dicha condición y <strong>complican al cliente con un resultado más abierto</strong></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 30%;">
+<col style="width: 60%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top"><strong>Obligacion</strong></th>
+<th class="tableblock halign-left valign-top"><strong>Beneficiario</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Cliente</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Satisfacer laS precondiciones</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>No necesita comprobar valores de salida porque el resultado garantiza el cumplimiento de la postcondicion</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p><strong>Servidor</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Satisfacer las postcondiciones</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>No necesita comprobar los valores de entrada porque la entrada garantiza el cumplimiento de la precondicion</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p>Una <strong>Invariantede Clase</strong> es una aserción expresada como una restricción general de la consistencia a aplicar a cada
+objeto de la clase como un todo.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Es diferencte de las precondiciones y postcondiciones caracterizadas a rutinas individuales sobre sus parámetros de entrada y sus resultados respectivamente junto con el estado del objeto. La invariante solo involucra el estado del objeto.</p>
+</li>
+<li>
+<p>Añadir Invariantes de Clase fortalece o mantiene como poco las precondiciones y postcondiciones porque la invariante:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Facilita el trabajo del componente</strong> porque además de la precondición, se puede asumir que el estado inicial del objeto cumple la invariante, lo que restringe el conjunto de casos que se deben contemplar</p>
+</li>
+<li>
+<p><strong>Complica el trabajo del componente</strong> porque además de la postcondición, se debe cumplir que el estado final del objeto cumpla la invariante, lo que puede aumentar las acciones a realizar</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Una clase es <strong>correcta</strong> asi:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Cada constructor</strong> de la clase, cuando se aplica satisfaciendo su precondición en un estado donde los atributos tienen sus valores por defecto, cuando termina satisface la invariante: <em>{P} constructor {Q and I}</em></p>
+</li>
+<li>
+<p><strong>Cada operación</strong> de la clase, cuando se aplica satisfaciendo su precondición y su invariante, cuando termina satisface su postcondición y su invariante: <em>{P and I} operación {Q and I}</em></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="implemetación">Implemetación</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="cohesión">Cohesión</h3>
+<div class="sect3">
+<h4 id="cohesión-de-métodos">Cohesión de Métodos</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Sinónimos</th>
+<th class="tableblock halign-left valign-top">Synonyms</th>
+<th class="tableblock halign-left valign-top">Libro</th>
+<th class="tableblock halign-left valign-top">Autor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>La funciones deberían hacer una sola cosa</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Functions Should Do One Thing</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Smell Code (Refactoring)</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Martin Fowler</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Justificación</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>A menudo se intenta crear funciones que tienen multiples secciones que realizan una serie de operaciones. Dicho de otra manera, la relacion entre las líneas de la implantación del método no son cohesivas porque persiguen distintos objetivos</p>
+</li>
+<li>
+<p>Producen un acoplamiento temporal e imposibilitan su reusabilidad.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><em>Por ejemplo: Método que calculala longitude de un Interval y muestra el resultado por pantalla. Cuando solo se necesitael cálculo, no es reutilizable</em></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Solución</strong>: Deberían ser convertidas varias funciones pequeñas que hacen una sola cosa</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="principio-de-única-responsabilidad">Principio de Única Responsabilidad</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Definido por Robert Martin (<em>Single Responsibility Principle</em> -SRP) como uno de los principios SOLID</p>
+</li>
+<li>
+<p>Está inspirado en los trabajos de <em>De Marco</em> y <em>Page-Jones</em>, denominado como <strong>cohesion</strong>: relación funcional de los elementos de un modulo. Pero desplaza un poco el significado y relaciona la cohesion con la causa de cambiode un modulo.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Define responsabilidad como una razón de cambio: si se puede pensar en más de un motivo de cambio para una clase, entonces la clase tiene más de una responsabilidad.</p>
+</li>
+<li>
+<p><strong>Principio de Única Responsabilidad</strong> dice que <strong>una clase debería tener un único motivo de cambio</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Es uno de los principios más sencillos y uno de los más difíciles de aplicar correctamente. Combinar responsabilidades es algo que hacemos de forma natural. Encontrar y separar esas responsabilidades entre sí es mucho de lo que el diseño de software es en sí mismo realmente.</p>
+</li>
+<li>
+<p>Un eje de cambio es solo un eje de cambio si el cambio ocurre actualmente. No es prudente aplicar el SRP, o cualquier otro principio para el caso, si no hay ningún síntoma: YAGNI</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Justificación</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Si una clase tiene más de una responsabilidad entonces pueden llegar a acoplarse.</p>
+</li>
+<li>
+<p>Los cambios de una responsabilidad pueden perjudicar o inhibir la capacidad de otras clases afectando a su funcionalidad</p>
+</li>
+<li>
+<p>Esta clase de acoplamientos produce diseños frágiles que se rompen de forma inesperada.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><em>Ejemplos:</em></p>
+<div class="ulist">
+<ul>
+<li>
+<p><em>si una clase Board_es responsable de las fichas de los jugadores y ademásde presentarse por consola, cuando se cambie a un entorno gráfico puede afectar a la clase que crea el tablero porque tiene que suministrarlos aspectos gráficos necesarios para su nueva presentación</em></p>
+</li>
+<li>
+<p><em>Si una entidad del dominio (Student, …) se autoguarda en la base de datos puede repercutir al cambiar la ecnologías de la capa de persistencia en aquellas clases que manejan la entidad</em></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Solución</strong>: Partirla funcionalidad en dos clases. Cada clase maneja un única responsabilidad y en el futuro, si se necesita realizar algún cambio se realizará en la clase que lo maneje.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><em>Ejemplos:</em></p>
+<div class="ulist">
+<ul>
+<li>
+<p><em>Separarla clase Board responsable de la gestión de las fichas de los jugadores de la clase BoardView responsable de su visualización colaborando con la clase anterior para obtener la información a presentar. Los cambios en las tecnologías de visualización afectarán únicamente a las clases de presentación</em></p>
+</li>
+<li>
+<p><em>Separa la clase de entidad del dominio de las clases dedicadas a la grabación y recuperación de dicha entidad(patron DAO)</em></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="código-sucio-por-cirugía-a-escopetazos">Código Sucio por Cirugía a Escopetazos</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Sinónimos</th>
+<th class="tableblock halign-left valign-top">Synonyms</th>
+<th class="tableblock halign-left valign-top">Libro</th>
+<th class="tableblock halign-left valign-top">Autor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Cirugía de escopeta</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Shotgun Surgery</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Smell Code ((Refactoring)</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Martin Fowler</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Justificación</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Cuando cada vez que se hace una especie de cambio, lo que se tiene que hacer es un montón de pequeños cambios en un montón de clases diferentes. Cuando los cambios son por todos lados son difíciles de encontrar y es fácil pasar por alto un cambio importante.</p>
+</li>
+<li>
+<p>Un cambio que altera muchas clases. Idealmente, existe una relación de uno a uno entre los cambios comunes y las clases.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Solución</strong>: En este caso, hay que mover las responsabilidades entre las clases para evitarlo. Si no hay una clase actual que parezca una buena candidata, cree una.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="código-sucio-por-cambios-divergentes">Código Sucio por Cambios Divergentes</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Sinónimos</th>
+<th class="tableblock halign-left valign-top">Synonyms</th>
+<th class="tableblock halign-left valign-top">Libro</th>
+<th class="tableblock halign-left valign-top">Autor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Cambio divergente</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Divergent Change</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Smell Code (Refactoring)</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Martin Fowler</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Justificación</strong>: Ocurre cuando una clase se cambia frecuentemente de diferentes maneras, por diferentes razones. Si nos fijamos en una clase y dice: "Bueno, voy a tener que cambiar estos tres métodos cada vez que tengo una nueva base de datos, tengo que cambiar estos cuatro métodos cada vez que hay un nuevo instrumento financiero, …"</p>
+</li>
+<li>
+<p><strong>Solución</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Es probable que tenga una situación en la que varios objetos son mejor que uno. De esta manera cada objeto sólo se cambia como resultado de un tipo de cambio. Por supuesto, a menudo se descubre esto sólo después de añadir un par de bases de datos o instrumentos financieros.</p>
+</li>
+<li>
+<p>Estructuramos nuestro software para hacer el cambio más fácil. Después de todo, el software está destinado a ser blando. Cuando hacemos un cambio queremos la ventaja de ser capaces de saltar a un solo punto en el sistema y hacer el cambio.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="código-sucio-por-clase-de-datos">Código Sucio por Clase de Datos</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Sinónimos</th>
+<th class="tableblock halign-left valign-top">Synonyms</th>
+<th class="tableblock halign-left valign-top">Libro</th>
+<th class="tableblock halign-left valign-top">Autor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Clase de datos</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Data Class</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Smell Code (Refactoring)</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Martin Fowler</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Justificación</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Hay clases que tienen atributos, métodos <em>get/set</em> y nada más. Estas clases son soportes de datos tontos y es casi seguro que se manipulan con demasiado detalle por otras clases.</p>
+</li>
+<li>
+<p>Las clases necesitan tomar alguna responsabilidad</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Solución</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Buscar des de dónde se llaman los métodos <em>get/set</em> que son usados por otras clases. Intentar mover el comportamiento dentro de la clase de datos.</p>
+</li>
+<li>
+<p>Después eliminar los métodos _get/set_innecesarios</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="código-sucio-por-envidia-de-características">Código Sucio por Envidia de Características</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Sinónimos</th>
+<th class="tableblock halign-left valign-top">Synonyms</th>
+<th class="tableblock halign-left valign-top">Libro</th>
+<th class="tableblock halign-left valign-top">Autor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Características de la envidia</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Features Envy</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Smell Code (Refactoring)</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Martin Fowler</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Justificación</strong>: Un mal olor clásico es un método que parece más interesado en una clase distinta de la que realmente es. El enfoque más común de la envidia son los datos. Multitud de veces se ve un método que invoca media docena de métodos para conseguir calcular un valor de otro objeto.</p>
+</li>
+<li>
+<p><strong>Solución</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>El método claramente quiere estar en otro lugar. A veces sólo una parte del método adolece de envidia; en ese caso, extraer el método ponerlo en la clase adecuada.</p>
+</li>
+<li>
+<p>La clave de los objetos es una técnica para empaquetar datos con los procesos utilizados en esos datos.</p>
+</li>
+<li>
+<p>Si se extrae información de objetos de varias clases combinadamente, colocar el método en la clase que más atributos aporta para el cálculo</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="código-sucio-por-clases-perezosas">Código Sucio por Clases Perezosas</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Sinónimos</th>
+<th class="tableblock halign-left valign-top">Synonyms</th>
+<th class="tableblock halign-left valign-top">Libro</th>
+<th class="tableblock halign-left valign-top">Autor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Lazy Class</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Clase perezosa</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Smell Code (Refactoring)</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Martin Fowler</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Justificación</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Cada clase que se crea cuesta dinero para mantenerla y entenderla.</p>
+</li>
+<li>
+<p>Una clase que no está haciendo lo suficiente para justificar el coste por sí mismo debería ser eliminada.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>A menudo, esto podría ser una clase que paga por su bagaje y se ha reducido con la refactorización.</p>
+</li>
+<li>
+<p>O podría ser una clase que fue añadida a causa de los cambios que estaban previstos, pero nunca llegaron.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Solución</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>De cualquier manera, dejar que la clase muera con dignidad asignando su escasa responsabilidad a otra clase</p>
+</li>
+<li>
+<p>Si hay subclases que no están haciendo lo suficiente, trate de contraerla jerarquía.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="código-sucio-por-obsesión-por-tipos-primitivos">Código Sucio por Obsesión por Tipos Primitivos</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Sinónimos</th>
+<th class="tableblock halign-left valign-top">Synonyms</th>
+<th class="tableblock halign-left valign-top">Libro</th>
+<th class="tableblock halign-left valign-top">Autor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Obsesión primitiva</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Primitive Obssesion</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Smell Code (Refactoring)</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Martin Fowler</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Justificaión</strong>: Las nuevos programadores orientados a objetos, por lo general, son reacios a utilizar objetos pequeños para pequeñas tareas, como la clase Dinero que combinan cantidad y moneda, clase Intervalo con límite superior e inferior y clases especiales de cadenas de caracteres como números de teléfono y códigos postales.</p>
+</li>
+<li>
+<p><strong>Solución</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Puede reemplazar un valor de tipo primitivo por una clase en incorporar su responsabilidad</p>
+</li>
+<li>
+<p>En el caso de que no exista dicha responsabilidad asignable, puede crear un enumerado</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="código-sucio-por-grupo-de-datos">Código Sucio por Grupo de Datos</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Sinónimos</th>
+<th class="tableblock halign-left valign-top">Synonyms</th>
+<th class="tableblock halign-left valign-top">Libro</th>
+<th class="tableblock halign-left valign-top">Autor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Grupos de datos</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Data Clumps</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Smell Code (Refactoring)</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Martin Fowler</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Justificación</strong>: Si se encuentran los mismos dos, tres o cuatro elementos de datos juntos en muchos lugares: atributos en un par de clases, los parámetros de muchas cabeceras de métodos.</p>
+</li>
+<li>
+<p><strong>Solución</strong>:
+**Los grupos de datos que se presentan juntos realmente deben componer su propio objeto.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Ante la duda, una buena comprobación sería preguntarse si quitando uno del grupo, ¿los demás tendrían sentido? Si la respuesta es no, forman un grupo de datos</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="acoplamiento">Acoplamiento</h3>
+<div class="sect3">
+<h4 id="leyes-de-demeter">Leyes de Demeter</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Sinónimos</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Synonyms</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Libro</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Autor</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>No hablescon extraños</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Do not talk to strangers</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>xxx</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Lieberherr</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Cadena de Mensajes</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Chain of Message</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Smell Code (Refactoring)</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Martin Fowler</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Justificación</strong>: Controlar el bajo acoplamiento restringieno a qué objetos enviar mensajes desde un método</p>
+</li>
+<li>
+<p><strong>Solución</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Enviar únicamente a:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>This</p>
+</li>
+<li>
+<p>Parámetro</p>
+</li>
+<li>
+<p>Atributos</p>
+</li>
+<li>
+<p>Local</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>No enviar <strong>nunca a otros objetos indirectos obtenidos como resultado de un mensaje a un objeto de conocimiento directo</strong>.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="código-sucio-por-librería-incompleta">Código Sucio por Librería Incompleta</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Sinónimos</th>
+<th class="tableblock halign-left valign-top">Synonyms</th>
+<th class="tableblock halign-left valign-top">Libro</th>
+<th class="tableblock halign-left valign-top">Autor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Clase de biblioteca incompleta</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Incomplete Library Class</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Smell Code ((Refactoring)</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Martin Fowler</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Justificación</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Los desarrolladores de clases de biblioteca son raramente omniscientes. No los culpamos por eso, después de todo, rara vez podemos imaginar un diseño hasta su mayoría que hemos construido, así que los desarrolladores de la biblioteca tienen un trabajo muy duro.</p>
+</li>
+<li>
+<p>El problema es que a menudo es de mala educación, y por lo general imposible, modificar una clase de biblioteca para hacer algo que te gustaría que hiciera.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Solúción</strong>: Crea una clase con los métodos extra adecuados a tus necesidades</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="inapropiada-intimidad">Inapropiada Intimidad</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Justificación</strong>: Una relación bi-direccional complica el desarrollo, las pruebas, la legibilidad, …</p>
+</li>
+<li>
+<p><strong>Solucíón</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>La sobre-intimidad necesita ser rota:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Debes arreglar relaciones bidireccionales por unidireccionales</p>
+</li>
+<li>
+<p>Mueve métodos y atributos para separar las piezas que reduzcan la intimidad</p>
+</li>
+<li>
+<p>Si las clases tienen interes es encomún, extrae en una nueva clase poniendolo común a salvo y haz que las demás sean honesta sobre ella.</p>
+</li>
+<li>
+<p>La herencia a menudo puede conducer a la sobre-intimidad. Las subclases van a conocer más de sus padres de lo que a sus padres les gustaría que ellos conocieran. Se puede sustituir por Delegación</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="quoteblock">
+<blockquote>
+Algunas clases llegan a alcanzar demasiada intimidad y gastan mucho tiempo ahondando en las partes priva de otras clases.Nosotros pensamos que nuestras clases deberían ser estrictas con reglas puritanas
+</blockquote>
+<div class="attribution">
+&#8212; Fowler
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="tamaño">Tamaño</h3>
+<div class="sect3">
+<h4 id="código-sucio-por-listas-de-parámetros-largas">Código Sucio por Listas de Parámetros Largas</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Sinónimos</th>
+<th class="tableblock halign-left valign-top">Synonyms</th>
+<th class="tableblock halign-left valign-top">Libro</th>
+<th class="tableblock halign-left valign-top">Autor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Lista de Parámetros Larga</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Long Parameter List</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Smell Code (Refactoring)</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Martin Fowler</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Demasiados Argumentos</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Too Many Arguments</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Smell Code (Clean Code)</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Robert Martin</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Justificación</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Son difíciles de entender</p>
+</li>
+<li>
+<p>Son difíciles de probar todas la combinaciones de argumentos</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Solución</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Eliminar el parámetro cuando puedes obtenerlo a partir de algún objeto que ya conoces</p>
+</li>
+<li>
+<p>Eliminar varios parámetros suministrando un objeto que los facilite</p>
+</li>
+<li>
+<p>Crear un objeto que agrupe varios parámetros y asigna responsabilidad a sus clase</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Métrica</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Funciones deberán tener un número pequeño de argumentos. Sin argumentos es lo mejor, seguido por uno, dos.Tres debería evitarse y más de tres es muy cuestionable y debe considerarse como un prejuicio.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="código-sucio-por-métodos-largos">Código Sucio por Métodos Largos</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Sinónimos</th>
+<th class="tableblock halign-left valign-top">Synonyms</th>
+<th class="tableblock halign-left valign-top">Libro</th>
+<th class="tableblock halign-left valign-top">Autor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Métodos largos</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Long Method</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Smell Code (Refactoring)</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Martin Fowler</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Justificación</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Desde los principios de la programación, los programadores se han dado cuenta de que cuanto más largo es un procedimiento, más difícil es de entender. Los viejoslenguajes conllevaban una sobrecarga en las llamadas a subrrutinas, de tal forma que se persuadía de escribir métodos pequeños.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Solución</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>El 99% de las veces, se tiene que acortar un método extrayendo otro. Buscar una parte del método que parezca ir bien junta y hacerlo un nuevo método</p>
+</li>
+<li>
+<p>Una buena técnica es mirarlos comentarios o líneas en blanco para separar partes. Son señales de esta clasede distancia semántica. Un bloque de código con un comentario dice que debes reemplazar el bloque con un método cuyo nombre está basado en el comentario</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Métrica</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Número de Lineas: [10, 15] como máximo</p>
+</li>
+<li>
+<p>Caracteres por línea: [80,120] como máximo</p>
+</li>
+<li>
+<p>Complejidad ciclomática: [10-15] como máximo</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Implicaciones</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Los nuevos programadores orientados a objetos a menudo sienten que la computación no se hace en ninguna parte, que los programas son secuencias sin fin de delegación. Cuando has vivido con un programa como tal por unos años, aprendes cómo de valorable son todos esos pequeños métodos. Todos los costes de indirección– explicación, compartición y selección –son respaldadas por pequeños métodos</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="código-sucio-por-clases-grandes">Código Sucio por Clases Grandes</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">sinónimos</th>
+<th class="tableblock halign-left valign-top">synonyms</th>
+<th class="tableblock halign-left valign-top">libro</th>
+<th class="tableblock halign-left valign-top">autor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Objeto gigante</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Big Large Object(BLOB)</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Antipatrónde Desarrollo</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>William H.Brown et al</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Demasiada información</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Too much Information</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Smell Code (Clean Code)</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Robert Martin (Uncle Bob)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Large Class</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Clase grande</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Smell Code (Refactoring)</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Martin Fowler</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Justificación</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Cuando una clase está tratando de hacer demasiado, a menudo aparece con demasiadas variables de instancia. En tal caso, el código duplicado no puede estar muy lejos.</p>
+</li>
+<li>
+<p>Los archivos pequeños son generalmente más fáciles de entender que archivos de gran tamaño.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Métrica</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Parece ser posible construir sistemas significativos con archivos que son típicamente de 200 líneas de largo, con un límite máximo de 500. A pesar de que esto no debería ser una regla dura y rápida, debe considerarse muy deseable.</p>
+</li>
+<li>
+<p>3 atributos de media; 5 como máximo</p>
+</li>
+<li>
+<p>20 métodos como máximo</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Solución</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Descomponer la clase otorgando grupos de atributos relacionados a otras clases</p>
+</li>
+<li>
+<p>Si es una clase de interfaz separa los datos y cálculos del dominio en una clase de entidad</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="código-sucio-por-atributos-temporales">Código Sucio por Atributos Temporales</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Sinónimos</th>
+<th class="tableblock halign-left valign-top">Synonyms</th>
+<th class="tableblock halign-left valign-top">Libro</th>
+<th class="tableblock halign-left valign-top">Autor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Campos temporales</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Temporary Fields</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Smell Code (Refactoring)</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="paragraph">
+<p>Martin Fowler</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Justificación</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>A veces se ve un objeto en el que una variable de instancia se establece sólo en ciertas circunstancias. Tal código es difícil de comprender porque tu esperas que un objetos necesite todas sus variables. Tratar de entender por qué una variable está allí cuando no parece ser usada puede crear complejidad innecesaria.</p>
+</li>
+<li>
+<p>Un caso común de atributo temporal se produce cuando un algoritmo complicado necesita varias variables. Debido a que el ejecutor no quería pasar una lista de parámetros enorme, se ponen en atributos. Pero los atributos son válidas sólo durante el algoritmo; en otros contextos son simplemente confusos.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Solución</strong>: En este caso, se puede extraer en una clase los atributos y los métodos
+que lo requieran. El nuevo objeto es un <em>objeto método</em> [Beck]</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<h1 id="bibliografía" class="sect0"><strong>Bibliografía</strong></h1>
+<div class="openblock partintro">
+<div class="content">
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Obra, Autor y Edición</th>
+<th class="tableblock halign-left valign-top">Portada</th>
+<th class="tableblock halign-left valign-top">Obra, Autor y Edición</th>
+<th class="tableblock halign-left valign-top">Portada</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>Object Solutions. Managing the Object Oriented Project</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Grady Booch</strong></p>
+</li>
+<li>
+<p>Addison-Wesley Professional (1789)</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="imageblock">
+<div class="content">
+<img src="images/ObjectSolutionsManagingTheObjectOrientedProject.jpg" alt="height32">
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>Object Oriented Analysis and Design with Applications</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Grady Booch</strong></p>
+</li>
+<li>
+<p>Imprint Addison-Wesley Educational s Inc (3 de junio de 2011)</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="imageblock">
+<div class="content">
+<img src="images/ObjectOrientedAnalysisAndDesignWithApplications.jpg" alt="height32">
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>The Unified Modeling Language User Guide</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Grady Booch</strong></p>
+</li>
+<li>
+<p>Pearson Education (US); Edición: 2 ed (28 de junio de 2005)</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="imageblock">
+<div class="content">
+<img src="images/TheUnifiedModelingLanguageUserGuide.jpg" alt="height32">
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>The Mythical Man Month. Essays on Software Engineering</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Frederick P. Brooks</strong></p>
+</li>
+<li>
+<p>Prentice Hall; Edición: Nachdr. 20th Anniversary (1 de enero de 1995)</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="imageblock">
+<div class="content">
+<img src="images/TheMythicalManMonthEssaysOnSoftwareEngineering.jpg" alt="height32">
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>Extreme Programming Explained. Embrace Change. Embracing Change</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Kent Beck,Cynthia Andres</strong></p>
+</li>
+<li>
+<p>Addison-Wesley Educational Publishers Inc; Edición: 2nd edition (16 de noviembre de 2004)</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="imageblock">
+<div class="content">
+<img src="images/ExtremeProgrammingExplainedEmbraceChangeEmbracingChange.jpg" alt="height32">
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>Refactoring. Improving the Design of Existing Code</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Martin Fowler,Kent Beck,John Brant,William Opdyke,Don Roberts</strong></p>
+</li>
+<li>
+<p>Addison Wesley; Edición: 01 (1 de octubre de 1999)</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="imageblock">
+<div class="content">
+<img src="images/RefactoringImprovingTheDesignOfExistingCode.jpg" alt="height32">
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>UML Distilled. A Brief Guide to the Standard Object Modeling Language</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Martin Fowler,Kendall Scott</strong></p>
+</li>
+<li>
+<p>Addison-Wesley Educational Publishers Inc; Edición: 3 ed (15 de septiembre de 2003)</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="imageblock">
+<div class="content">
+<img src="images/UMLDistilledABriefGuideToTheStandardObjectModelingLanguage.jpg" alt="height32">
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>Patrones de diseño</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Erich Gamma et al</strong></p>
+</li>
+<li>
+<p>Grupo Anaya Publicaciones Generales; Edición: 1 (1 de noviembre de 2002)</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="imageblock">
+<div class="content">
+<img src="images/PatronesDeDiseño.jpg" alt="height32">
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>Clean Code. A Handbook of Agile Software Craftsmanship</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Robert C. Martin</strong></p>
+</li>
+<li>
+<p>Prentice Hall; Edición: 01 (1 de agosto de 2008)</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="imageblock">
+<div class="content">
+<img src="images/CleanCodeAHandbookOfAgileSoftwareCraftsmanship.jpg" alt="height32">
+</div>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="ulist">
+<ul>
+<li>
+<p>Object-Oriented Software Construction</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Bertrand Meyer</strong></p>
+</li>
+<li>
+<p>Prentice Hall; Edición: 2 ed (3 de abril de 1997)</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div class="content"><div class="imageblock">
+<div class="content">
+<img src="images/ObjectOrientedSoftwareConstruction.jpg" alt="height32">
+</div>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Version 0.0.1<br>
+Last updated 2019-09-04 06:30:25 +0200
+</div>
+</div>
+<script>
+                let speed = 50;
+                
+                function typeWriter(v) {
+                  let i = v.getAttribute("typewriter-index")
+                  let txt = v.getAttribute("typewriter-original")
+                  
+                  if (i < txt.length) {
+                    v.getElementsByTagName("P")[0].innerHTML += txt.charAt(i);
+                    i++;
+                    v.setAttribute("typewriter-index", i)                        
+                  }else{
+                    if( ++i > txt.length+30 ){
+                        v.setAttribute("typewriter-index", 0)
+                        v.getElementsByTagName("P")[0].innerHTML = ''
+                    }
+                  }
+                }
+                
+                function typeWriterAll(){
+                    [].forEach.call(document.getElementsByClassName('typewriter'), function(v,i,a) {
+                        typeWriter(v)
+                    })
+                    setTimeout(typeWriterAll, speed);
+                }
+                                    
+                [].forEach.call(document.getElementsByClassName('typewriter'), function(v,i,a) {
+                    v.setAttribute("typewriter-original", v.innerText)
+                    v.setAttribute("typewriter-index", 0)
+                    v.getElementsByTagName("P")[0].innerHTML = ''
+                })
+                
+                setTimeout(typeWriterAll, speed);
+                
+                </script>
+</html>
