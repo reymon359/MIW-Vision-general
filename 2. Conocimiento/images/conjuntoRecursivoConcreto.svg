@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="277px" preserveAspectRatio="none" style="width:418px;height:277px;" version="1.1" viewBox="0 0 418 277" width="418px" zoomAndPan="magnify"><defs><filter height="300%" id="f1k7qrr4gwa7vq" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--cluster coleccion2--><polygon fill="#FFFFFF" filter="url(#f1k7qrr4gwa7vq)" points="22,67,104,67,111,90.6094,341,90.6094,341,154,22,154,22,67" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="22" x2="111" y1="90.6094" y2="90.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="76" x="26" y="83.5332">coleccion2</text><!--cluster coleccion1--><polygon fill="#FFFFFF" filter="url(#f1k7qrr4gwa7vq)" points="181,178,263,178,270,201.6094,396,201.6094,396,265,181,265,181,178" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="181" x2="270" y1="201.6094" y2="201.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="76" x="185" y="194.5332">coleccion1</text><rect fill="#FEFECE" filter="url(#f1k7qrr4gwa7vq)" height="35.0938" style="stroke: #A80036; stroke-width: 1.5;" width="71" x="253.5" y="103"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="57" x="260.5" y="117.457">Conjunto2</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="254.5" x2="323.5" y1="122.0938" y2="122.0938"/><rect fill="#FEFECE" filter="url(#f1k7qrr4gwa7vq)" height="35.0938" style="stroke: #A80036; stroke-width: 1.5;" width="71" x="147.5" y="103"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="57" x="154.5" y="117.457">Conjunto3</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="148.5" x2="217.5" y1="122.0938" y2="122.0938"/><rect fill="#FEFECE" filter="url(#f1k7qrr4gwa7vq)" height="35.0938" style="stroke: #A80036; stroke-width: 1.5;" width="74" x="38" y="103"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="60" x="45" y="117.457">Elemento1</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="39" x2="111" y1="122.0938" y2="122.0938"/><rect fill="#FEFECE" filter="url(#f1k7qrr4gwa7vq)" height="35.0938" style="stroke: #A80036; stroke-width: 1.5;" width="74" x="306" y="214"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="60" x="313" y="228.457">Elemento2</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="307" x2="379" y1="233.0938" y2="233.0938"/><rect fill="#FEFECE" filter="url(#f1k7qrr4gwa7vq)" height="35.0938" style="stroke: #A80036; stroke-width: 1.5;" width="74" x="197" y="214"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="60" x="204" y="228.457">Elemento3</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="198" x2="270" y1="233.0938" y2="233.0938"/><rect fill="#FEFECE" filter="url(#f1k7qrr4gwa7vq)" height="35.0938" style="stroke: #A80036; stroke-width: 1.5;" width="71" x="147.5" y="8"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="57" x="154.5" y="22.457">Conjunto1</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="148.5" x2="217.5" y1="27.0938" y2="27.0938"/><!--link Conjunto1 to Elemento1--><path d="M141.352,50.449 C137.408,53.185 133.558,56.054 130,59 C117.903,69.016 105.9885,81.675 96.359,92.821 " fill="none" id="Conjunto1-Elemento1" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="87.8953,102.909,96.7443,98.5852,91.109,99.0786,90.6157,93.4433,87.8953,102.909" style="stroke: #A80036; stroke-width: 1.0;"/><line style="stroke: #A80036; stroke-width: 1.0;" x1="91.109" x2="96.2509" y1="99.0786" y2="92.9505"/><polygon fill="#A80036" points="152.555,43.139,145.3443,43.0673,142.5047,49.6959,149.7155,49.7675,152.555,43.139" style="stroke: #A80036; stroke-width: 1.0;"/><!--link Conjunto1 to Conjunto2--><path d="M224.705,50.381 C228.638,53.131 232.469,56.022 236,59 C247.688,68.859 259.073,81.353 268.277,92.424 " fill="none" id="Conjunto1-Conjunto2" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="276.685,102.87,274.1584,93.3507,273.5501,98.9748,267.9261,98.3665,276.685,102.87" style="stroke: #A80036; stroke-width: 1.0;"/><line style="stroke: #A80036; stroke-width: 1.0;" x1="273.5501" x2="268.534" y1="98.9748" y2="92.742"/><polygon fill="#A80036" points="213.517,43.052,216.3438,49.686,223.5546,49.6282,220.7279,42.9942,213.517,43.052" style="stroke: #A80036; stroke-width: 1.0;"/><!--link Conjunto1 to Conjunto3--><path d="M183,56.214 C183,66.9 183,78.952 183,89.65 " fill="none" id="Conjunto1-Conjunto3" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="183,102.704,187,93.704,183,97.704,179,93.704,183,102.704" style="stroke: #A80036; stroke-width: 1.0;"/><line style="stroke: #A80036; stroke-width: 1.0;" x1="183" x2="183" y1="97.704" y2="89.704"/><polygon fill="#A80036" points="183,43.127,179,49.127,183,55.127,187,49.127,183,43.127" style="stroke: #A80036; stroke-width: 1.0;"/><!--link Conjunto2 to Elemento2--><path d="M302.987,149.733 C310.929,165.763 320.844,185.7784 328.818,201.8732 " fill="none" id="Conjunto2-Elemento2" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="334.721,213.7895,334.3098,203.9492,332.5013,209.3092,327.1413,207.5008,334.721,213.7895" style="stroke: #A80036; stroke-width: 1.0;"/><line style="stroke: #A80036; stroke-width: 1.0;" x1="332.5013" x2="328.95" y1="209.3092" y2="202.1406"/><polygon fill="#A80036" points="297.201,138.055,296.2795,145.207,302.5269,148.8084,303.4484,141.6564,297.201,138.055" style="stroke: #A80036; stroke-width: 1.0;"/><!--link Conjunto2 to Elemento3--><path d="M274.754,149.733 C266.665,165.763 256.566,185.7784 248.445,201.8732 " fill="none" id="Conjunto2-Elemento3" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="242.432,213.7895,250.0577,207.5566,244.6845,209.3256,242.9155,203.9525,242.432,213.7895" style="stroke: #A80036; stroke-width: 1.0;"/><line style="stroke: #A80036; stroke-width: 1.0;" x1="244.6845" x2="248.288" y1="209.3256" y2="202.1833"/><polygon fill="#A80036" points="280.647,138.055,274.3727,141.6093,275.2404,148.768,281.5147,145.2137,280.647,138.055" style="stroke: #A80036; stroke-width: 1.0;"/><!--
+@startuml
+
+
+object Conjunto1
+
+package coleccion2 {
+object Conjunto2
+object Conjunto3
+object Elemento1
+}
+
+package coleccion1 {
+object Elemento2
+object Elemento3
+}
+
+Conjunto1 *-down-> Elemento1
+Conjunto1 *-down-> Conjunto2
+Conjunto1 *-down-> Conjunto3
+
+Conjunto2 *-down-> Elemento2
+Conjunto2 *-down-> Elemento3
+
+
+@enduml
+
+PlantUML version 1.2019.05(Sat Apr 20 18:45:36 CEST 2019)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Java Version: 1.8.0_211-b12
+Operating System: Windows 10
+OS Version: 10.0
+Default Encoding: windows-1252
+Language: es
+Country: ES
+--></g></svg>

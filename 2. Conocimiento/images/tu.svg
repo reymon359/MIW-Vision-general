@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="166px" preserveAspectRatio="none" style="width:342px;height:166px;" version="1.1" viewBox="0 0 342 166" width="342px" zoomAndPan="magnify"><defs><filter height="300%" id="f1gvc3j0pl11nt" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--cluster partes--><polygon fill="#FFFFFF" filter="url(#f1gvc3j0pl11nt)" points="22,67,73,67,80,90.6094,320,90.6094,320,154,22,154,22,67" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="22" x2="80" y1="90.6094" y2="90.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="45" x="26" y="83.5332">partes</text><rect fill="#FEFECE" filter="url(#f1gvc3j0pl11nt)" height="35.0938" style="stroke: #A80036; stroke-width: 1.5;" width="60" x="244" y="103"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="46" x="251" y="117.457">Corazón</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="245" x2="303" y1="122.0938" y2="122.0938"/><rect fill="#FEFECE" filter="url(#f1gvc3j0pl11nt)" height="35.0938" style="stroke: #A80036; stroke-width: 1.5;" width="59" x="149.5" y="103"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="45" x="156.5" y="117.457">Cerebro</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="150.5" x2="207.5" y1="122.0938" y2="122.0938"/><rect fill="#FEFECE" filter="url(#f1gvc3j0pl11nt)" height="35.0938" style="stroke: #A80036; stroke-width: 1.5;" width="76" x="38" y="103"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="62" x="45" y="117.457">Conciencia</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="39" x2="113" y1="122.0938" y2="122.0938"/><rect fill="#FEFECE" filter="url(#f1gvc3j0pl11nt)" height="35.0938" style="stroke: #A80036; stroke-width: 1.5;" width="28" x="165" y="8"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="14" x="172" y="22.457">Tú</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="166" x2="192" y1="27.0938" y2="27.0938"/><!--link Tú to Corazón--><path d="M204.299,41.982 C211.642,46.996 219.442,52.859 226,59 C236.605,68.93 246.832,81.2934 255.101,92.2508 " fill="none" id="Tú-Corazón" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="262.944,102.9997,260.8706,93.3716,259.9969,98.9606,254.4079,98.0869,262.944,102.9997" style="stroke: #A80036; stroke-width: 1.0;"/><line style="stroke: #A80036; stroke-width: 1.0;" x1="259.9969" x2="255.2815" y1="98.9606" y2="92.4978"/><polygon fill="#A80036" points="193.382,34.885,196.2326,41.5087,203.4432,41.425,200.5926,34.8013,193.382,34.885" style="stroke: #A80036; stroke-width: 1.0;"/><!--link Tú to Cerebro--><path d="M179,56.214 C179,66.9 179,78.9523 179,89.6499 " fill="none" id="Tú-Cerebro" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="179,102.7038,183,93.7038,179,97.7038,175,93.7038,179,102.7038" style="stroke: #A80036; stroke-width: 1.0;"/><line style="stroke: #A80036; stroke-width: 1.0;" x1="179" x2="179" y1="97.7038" y2="89.7039"/><polygon fill="#A80036" points="179,43.127,175,49.127,179,55.127,183,49.127,179,43.127" style="stroke: #A80036; stroke-width: 1.0;"/><!--link Tú to Conciencia--><path d="M153.987,42.3 C146.654,47.324 138.787,53.113 132,59 C120.12,69.305 108.121,81.9098 98.2938,92.9418 " fill="none" id="Tú-Conciencia" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="89.6125,102.9104,98.5396,98.7503,92.8962,99.1398,92.5066,93.4964,89.6125,102.9104" style="stroke: #A80036; stroke-width: 1.0;"/><line style="stroke: #A80036; stroke-width: 1.0;" x1="92.8962" x2="98.1502" y1="99.1398" y2="93.1069"/><polygon fill="#A80036" points="164.84,35.132,157.629,35.1017,154.8275,41.7463,162.0385,41.7767,164.84,35.132" style="stroke: #A80036; stroke-width: 1.0;"/><!--
+@startuml
+
+object Tú
+
+package partes {
+object Corazón
+object Cerebro
+object Conciencia
+}
+
+Tú *-down-> Corazón
+Tú *-down-> Cerebro
+Tú *-down-> Conciencia
+@enduml
+
+PlantUML version 1.2019.05(Sat Apr 20 18:45:36 CEST 2019)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Java Version: 1.8.0_211-b12
+Operating System: Windows 10
+OS Version: 10.0
+Default Encoding: windows-1252
+Language: es
+Country: ES
+--></g></svg>

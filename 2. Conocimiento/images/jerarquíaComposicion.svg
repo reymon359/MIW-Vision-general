@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="166px" preserveAspectRatio="none" style="width:414px;height:166px;" version="1.1" viewBox="0 0 414 166" width="414px" zoomAndPan="magnify"><defs><filter height="300%" id="f1a6aivbmawx6i" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--cluster coleccion--><polygon fill="#FFFFFF" filter="url(#f1a6aivbmawx6i)" points="22,67,96,67,103,90.6094,392,90.6094,392,154,22,154,22,67" style="stroke: #000000; stroke-width: 1.5;"/><line style="stroke: #000000; stroke-width: 1.5;" x1="22" x2="103" y1="90.6094" y2="90.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="68" x="26" y="83.5332">coleccion</text><rect fill="#FEFECE" filter="url(#f1a6aivbmawx6i)" height="35.0938" style="stroke: #A80036; stroke-width: 1.5;" width="89" x="286.5" y="103"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="75" x="293.5" y="117.457">Objeto Parte1</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="287.5" x2="374.5" y1="122.0938" y2="122.0938"/><rect fill="#FEFECE" filter="url(#f1a6aivbmawx6i)" height="35.0938" style="stroke: #A80036; stroke-width: 1.5;" width="89" x="162.5" y="103"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="75" x="169.5" y="117.457">Objeto Parte2</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="163.5" x2="250.5" y1="122.0938" y2="122.0938"/><rect fill="#FEFECE" filter="url(#f1a6aivbmawx6i)" height="35.0938" style="stroke: #A80036; stroke-width: 1.5;" width="89" x="38.5" y="103"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="75" x="45.5" y="117.457">Objeto Parte3</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="39.5" x2="126.5" y1="122.0938" y2="122.0938"/><rect fill="#FEFECE" filter="url(#f1a6aivbmawx6i)" height="35.0938" style="stroke: #A80036; stroke-width: 1.5;" width="81" x="166.5" y="8"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="67" x="173.5" y="22.457">Objeto Todo</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="167.5" x2="246.5" y1="27.0938" y2="27.0938"/><!--link Todo to Parte1--><path d="M254.541,49.574 C259.55,52.545 264.464,55.707 269,59 C282.604,68.877 296.149,81.6632 307.092,92.9352 " fill="none" id="Todo-Parte1" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="316.338,102.7342,313.071,93.443,312.9066,99.0975,307.2522,98.9332,316.338,102.7342" style="stroke: #A80036; stroke-width: 1.0;"/><line style="stroke: #A80036; stroke-width: 1.0;" x1="312.9066" x2="307.4165" y1="99.0975" y2="93.2788"/><polygon fill="#A80036" points="242.815,43.018,246.1,49.4374,253.289,48.8741,250.0041,42.4547,242.815,43.018" style="stroke: #A80036; stroke-width: 1.0;"/><!--link Todo to Parte2--><path d="M207,56.214 C207,66.9 207,78.9523 207,89.6499 " fill="none" id="Todo-Parte2" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="207,102.7038,211,93.7038,207,97.7038,203,93.7038,207,102.7038" style="stroke: #A80036; stroke-width: 1.0;"/><line style="stroke: #A80036; stroke-width: 1.0;" x1="207" x2="207" y1="97.7038" y2="89.7039"/><polygon fill="#A80036" points="207,43.127,203,49.127,207,55.127,211,49.127,207,43.127" style="stroke: #A80036; stroke-width: 1.0;"/><!--link Todo to Parte3--><path d="M159.459,49.574 C154.45,52.545 149.536,55.707 145,59 C131.396,68.877 117.851,81.6632 106.908,92.9352 " fill="none" id="Todo-Parte3" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="97.6623,102.7342,106.7483,98.9335,101.0938,99.0976,100.9297,93.4431,97.6623,102.7342" style="stroke: #A80036; stroke-width: 1.0;"/><line style="stroke: #A80036; stroke-width: 1.0;" x1="101.0938" x2="106.5838" y1="99.0976" y2="93.2788"/><polygon fill="#A80036" points="171.185,43.018,163.9959,42.4547,160.711,48.8741,167.9,49.4374,171.185,43.018" style="stroke: #A80036; stroke-width: 1.0;"/><!--
+@startuml
+
+object "Objeto Todo" as Todo
+
+package coleccion {
+object "Objeto Parte1" as Parte1
+object "Objeto Parte2" as Parte2
+object "Objeto Parte3" as Parte3
+}
+
+Todo *-down-> Parte1
+Todo *-down-> Parte2
+Todo *-down-> Parte3
+
+@enduml
+
+PlantUML version 1.2019.05(Sat Apr 20 18:45:36 CEST 2019)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Java Version: 1.8.0_211-b12
+Operating System: Windows 10
+OS Version: 10.0
+Default Encoding: windows-1252
+Language: es
+Country: ES
+--></g></svg>
